@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Speculation</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<header class="site-header">
+    <h1>Project Speculation</h1>
+    <nav class="site-nav">
+        <a href="index.html">← Back to Studio Work Index</a>
+    </nav>
+</header>
+
+<main class="container">
+    <article class="card prose">
+        <header>
+            <h2>Working title: “Pause Pop Playground”</h2>
+            <p class="muted">
+                Creative context: a playful, lightweight web interaction that encourages participation through feedback.
+            </p>
+        </header>
+
+        <section aria-labelledby="purpose">
+            <h3 id="purpose">Purpose</h3>
+            <p>
+                This project proposes a small interactive expressive tool for web browsers that treats <strong>feedback as the
+                main form of expression</strong>. Rather than making feedback purely functional (confirmations, errors, or UI
+                notifications), the tool frames feedback as a playful “character response”: the page notices the user’s
+                movements, waits for moments of stillness, and then responds with a surprising, cheerful event near the cursor.
+                The creative context is intentionally casual and inviting—closer to a tiny toy or micro-game than a traditional
+                website—so that participation can begin immediately without instructions.
+            </p>
+            <p>
+                The core interaction is designed for low effort and high reward: the user only needs to move and pause their
+                cursor. This simplicity leaves space for the tool’s expressive identity to come from its feedback logic:
+                timing, variation, and a sense of being “seen.” The tool is inspired by the delight of minimal interaction
+                systems where the interface feels alive because it responds in a consistent but playful way.
+            </p>
+        </section>
+
+        <section aria-labelledby="worth">
+            <h3 id="worth">Worth</h3>
+            <p>
+                The project is worth developing because feedback loops can meaningfully shape attention and mood with very small
+                gestures. Pointer Pointer is a useful reference point here: the site asks users to hold the cursor still, then
+                shows a photo of someone pointing at the cursor, using intentional delay to build anticipation and comedic
+                surprise. :contentReference[oaicite:0]{index=0}
+            </p>
+            <p>
+                I want to apply a similar logic—<em>pause → anticipation → reveal</em>—but translate it into a form that is
+                safer in terms of copyright and easier to control as a design system. Instead of relying on a large database of
+                found images, the tool will generate its feedback events using small original assets (e.g., simple sticker
+                shapes or icons I create in Procreate) and procedural variation (random text, position offsets, scale, and
+                animation). This keeps the project aligned with the brief’s requirement that any external media must be
+                appropriately licensed and attributed.
+            </p>
+            <p>
+                Ultimately, the tool’s “worth” lies in demonstrating that feedback is not just usability support—it can be the
+                expressive content itself. A minimal interface can become engaging if timing, surprise, and responsiveness are
+                treated as aesthetic material.
+            </p>
+        </section>
+
+        <section aria-labelledby="framing">
+            <h3 id="framing">Framing</h3>
+            <p>
+                The full project brief asks for a small, limited-scope interactive expressive tool, using HTML/CSS/JavaScript,
+                and experimenting with a novel application of one interaction design principle: Information Design, Feedback, or
+                Mapping. This project selects <strong>Feedback</strong> as the primary principle and proposes a novel framing:
+                feedback is staged as a playful conversation between user and interface, rather than a purely functional system.
+            </p>
+            <p>
+                To keep the scope limited and testable, the tool focuses on one loop:
+                <strong>move → pause → feedback event</strong>. The design will be structured as a simple state machine
+                (moving / waiting / triggered), with one primary trigger: “cursor stillness” for a short threshold. The output
+                will be a small feedback event near the cursor (e.g., sticker pop, speech bubble, tiny sparkle burst, optional
+                micro-sound). The user can repeat this loop quickly, so the tool’s expressiveness comes from controlled variety
+                rather than broad feature complexity.
+            </p>
+            <p>
+                While Feedback is the main principle, a small secondary mapping can be included without expanding scope: for
+                example, the <em>length of stillness</em> maps to the intensity of the feedback (longer pause → bigger pop or
+                richer animation). This keeps the tool cohesive and reinforces learnability through consistent responses.
+            </p>
+        </section>
+
+        <section aria-labelledby="experiments">
+            <h3 id="experiments">How my interactive experiments inform the project</h3>
+            <p>
+                My three in-class interactive experiments (linked on my Studio Work Index page) serve as early studies for the
+                final tool’s feedback logic. The final project will reuse what I learned about timing, clarity of states, and
+                the emotional tone of interactions.
+            </p>
+            <ul>
+                <li>
+                    <strong>Experiment 1 (placeholder title):</strong> explored basic pointer events and immediate micro-feedback
+                    (hover states, cursor-follow visuals). This informs the “listening” layer of feedback in the final tool:
+                    subtle UI changes while the user is moving.
+                </li>
+                <li>
+                    <strong>Experiment 2 (placeholder title):</strong> tested delayed feedback and threshold logic (e.g., timers,
+                    debounce, or “hold still” triggers). This directly supports the project’s key mechanism: pause-based reveal.
+                </li>
+                <li>
+                    <strong>Experiment 3 (placeholder title):</strong> prototyped playful variation (randomized text/shape choice,
+                    small animations). This informs how the final tool avoids repetitive feedback while staying readable.
+                </li>
+            </ul>
+            <p class="muted">
+                Note: once the three experiments are deployed, I will replace these placeholders with the real titles and
+                briefly summarise the specific design choices documented in each repository.
+            </p>
+        </section>
+
+        <section aria-labelledby="provided-tools">
+            <h3 id="provided-tools">Creative tools referenced (provided examples)</h3>
+            <p>
+                The provided examples demonstrate how small constraints and strong feedback can produce expressive outcomes:
+            </p>
+            <ul>
+                <li>
+                    <strong>Wigglypaint</strong> is a “juicy, jiggly” drawing program that emphasizes playful responsiveness and
+                    lets users save animated GIFs, showing how motion and feel can be the main value of a tool. :contentReference[oaicite:1]{index=1}
+                </li>
+                <li>
+                    <strong>OrbiDraw</strong> is described as a “relative art program” where marks orient relative to a chosen
+                    point, demonstrating how constraints can create surprising results and make a tool feel like a distinct
+                    system. :contentReference[oaicite:2]{index=2}
+                </li>
+                <li>
+                    <strong>Broider</strong> is a 1-bit border design tool that outputs CSS you can copy into your own site,
+                    showing how an expressive tool can produce a portable artifact for reuse. :contentReference[oaicite:3]{index=3}
+                </li>
+                <li>
+                    <strong>Flippory</strong> supports flipping/mirroring/cropping/automation for “reinformation,” showing how a
+                    tool can turn a simple transformation into an exploratory process with repeatable feedback. :contentReference[oaicite:4]{index=4}
+                </li>
+            </ul>
+            <p>
+                From these examples, I take two key lessons: (1) expressiveness can be driven by “feel” (timing, motion,
+                responsiveness), and (2) limited scope can still be deep if the tool’s feedback and constraints encourage
+                exploration.
+            </p>
+
+            <p>
+                Links (provided examples):
+                <a href="https://internet-janitor.itch.io/wigglypaint" target="_blank" rel="noopener noreferrer">Wigglypaint</a>,
+                <a href="https://sirmilkman.itch.io/orbidraw" target="_blank" rel="noopener noreferrer">OrbiDraw</a>,
+                <a href="https://maxbittker.github.io/broider/" target="_blank" rel="noopener noreferrer">Broider</a>,
+                <a href="https://bludgeonsoft.itch.io/flippory" target="_blank" rel="noopener noreferrer">Flippory</a>
+            </p>
+        </section>
+
+        <section aria-labelledby="independent-tools">
+            <h3 id="independent-tools">Independently researched creative tools / technologies</h3>
+            <p>
+                In addition to the provided examples, I researched web-native technologies that can support expressive feedback
+                without adding external libraries:
+            </p>
+            <ul>
+                <li>
+                    <strong>Web Animations API</strong> allows JavaScript control over timing and playback of DOM animations, which
+                    suits “pop,” “bounce,” and “sparkle” feedback events with consistent timing. :contentReference[oaicite:5]{index=5}
+                </li>
+                <li>
+                    <strong>Canvas 2D API</strong> (via <code>&lt;canvas&gt;</code> and <code>CanvasRenderingContext2D</code>) can
+                    generate lightweight procedural visuals (simple shapes, particles, trails) without relying on external image
+                    libraries. :contentReference[oaicite:6]{index=6}
+                </li>
+            </ul>
+            <p>
+                As optional extensions (from the full brief), I may later test <strong>Konva.js</strong> for structured,
+                interactive 2D graphics on canvas, and <strong>Tone.js</strong> for simple interactive sound feedback, but only
+                if they meaningfully improve the tool without expanding scope. :contentReference[oaicite:7]{index=7}
+            </p>
+            <p>
+                Finally, Pointer Pointer remains an important research reference for the project’s comedic timing and
+                stillness-based reveal mechanism. :contentReference[oaicite:8]{index=8}
+                <a href="https://pointerpointer.com/" target="_blank" rel="noopener noreferrer">Pointer Pointer</a>
+            </p>
+        </section>
+
+        <section aria-labelledby="technical-plan">
+            <h3 id="technical-plan">Initial technical approach (HTML / CSS / JavaScript)</h3>
+            <p>
+                <strong>HTML</strong> will provide a minimal semantic structure: a full-screen interaction area, a short help
+                hint, and a small status panel (e.g., “surprises found”). <strong>CSS</strong> will establish character and
+                readability: clear states (idle/moving/ready), sticker-like visual language, and subtle transitions.
+                <strong>JavaScript</strong> will handle the interaction logic: tracking pointer movement, detecting stillness
+                (a timer that resets on movement), and triggering a feedback event once stillness exceeds a threshold.
+            </p>
+            <p>
+                To keep the project manageable, the feedback events will be modular: each event is a small object containing
+                type (bubble/sticker/sparkle), content (text/emoji/shape), and motion (a short animation). This modularity
+                allows iteration after peer testing without rewriting the entire system.
+            </p>
+        </section>
+
+        <section aria-labelledby="media-support">
+            <h3 id="media-support">Supporting media (optional)</h3>
+            <p>
+                To support the speculation with non-written media, I plan to include a simple mockup image and/or a short GIF
+                demo of the pause-triggered feedback. These assets will be created by me (e.g., stickers exported from
+                Procreate), ensuring clear attribution and avoiding licensing issues.
+            </p>
+
+            <figure>
+                <img src="assets/images/mockup-placeholder.png" alt="Placeholder mockup image for Pause Pop Playground" />
+                <figcaption class="muted">
+                    Placeholder: replace with your own mockup image (created by you) once available.
+                </figcaption>
+            </figure>
+
+            <figure>
+                <video controls width="100%">
+                    <source src="assets/videos/demo-placeholder.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <figcaption class="muted">
+                    Placeholder: replace with a short screen recording / GIF demo once your prototype exists.
+                </figcaption>
+            </figure>
+        </section>
+
+        <footer>
+            <h3>Attribution note</h3>
+            <p class="muted">
+                Any external media used in future versions (images/audio/video/fonts) will be under appropriate licences and
+                properly attributed on the Studio Work Index.
+            </p>
+        </footer>
+    </article>
+</main>
+</body>
+</html>
