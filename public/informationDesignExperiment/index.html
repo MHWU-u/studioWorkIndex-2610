@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Design Experiment</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="infoDesignReset.css">
+    <link rel="stylesheet" href="infoDesignStyle.css">
+    <link rel="stylesheet" href="keyboardControllerStyle.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.3.5/Tone.js" integrity="sha512-F1myjNkIKU5XJtOs1HXRo/zOjiUsABgFEEGKLx/riwK82jRThZFebEnfF2HWo9eeC+iC1Nwwnn9Vj6OGq+r7rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js" defer></script>
+    <script src="keyboardController.js" defer></script>
+</head>
+<body>
+
+    <dialog id="intro-dialog">
+        <p>Hey this page wants to make some noise, is that OK?</p>
+        <button id="dialog-close-button" autofocus>That's OK</button>
+    </dialog>
+
+    <main>
+        <h1>Information Design Experiment</h1>
+        <p class="intro-copy">Three simple sliders shape the synth. The first follows the class example, while the other two use emoji-based information design.</p>
+
+        <section class="sliderPanel" aria-label="Synth controls">
+            <div class="sliderGroup">
+                <div class="sliderLabelRow">
+                    <span class="sliderEnd" aria-hidden="true">🔈</span>
+                    <label for="var1Range">Volume</label>
+                    <span class="sliderEnd" aria-hidden="true">🔊</span>
+                </div>
+                <input type="range" id="var1Range" min="-48" max="0" step="1" value="-6">
+                <p class="sliderCaption">Speaker icons show a clear change from quiet to loud.</p>
+            </div>
+
+            <div class="sliderGroup">
+                <!-- Design note: I used 🎵 to 🎶 because this slider makes the synth feel more animated and dense.
+                     As the value increases, the sound moves from a simpler pulse toward a more active musical fluctuation. -->
+                <div class="sliderLabelRow">
+                    <span class="sliderEnd" aria-hidden="true">🎵</span>
+                    <label for="var2Range">Rhythmic fluctuation</label>
+                    <span class="sliderEnd" aria-hidden="true">🎶</span>
+                </div>
+                <input type="range" id="var2Range" min="1" max="25" step="1" value="5">
+                <p class="sliderCaption">A single note becomes multiple notes to suggest stronger rhythmic movement.</p>
+            </div>
+
+            <div class="sliderGroup">
+                <!-- Design note: I used 🐋 to 🐦 as an oblique way to describe low and high sound.
+                     The whale suggests deep, heavy resonance, while the bird suggests lighter and higher tones. -->
+                <div class="sliderLabelRow">
+                    <span class="sliderEnd" aria-hidden="true">🐋</span>
+                    <label for="var3Range">Audio height</label>
+                    <span class="sliderEnd" aria-hidden="true">🐦</span>
+                </div>
+                <input type="range" id="var3Range" min="1" max="100" step="1" value="50">
+                <p class="sliderCaption">The control moves from deeper resonance to a brighter, higher-feeling sound.</p>
+            </div>
+        </section>
+
+        <div class="keyboardContainer">
+            <div class="octaveContainer" data-octave="3">
+                <div class="whiteKeyContainer">
+                    <button class="whiteKey" data-note="c"></button>
+                    <button class="whiteKey" data-note="d"></button>
+                    <button class="whiteKey" data-note="e"></button>
+                    <button class="whiteKey" data-note="f"></button>
+                    <button class="whiteKey" data-note="g"></button>
+                    <button class="whiteKey" data-note="a"></button>
+                    <button class="whiteKey" data-note="b"></button>
+                </div>
+                <div class="blackKeyContainer">
+                    <div class="blackKeySpacer"></div>
+                    <button class="blackKey" data-note="c#"></button>
+                    <button class="blackKey" data-note="d#"></button>
+                    <div class="blackKeySpacer"></div>
+                    <div class="blackKeySpacer"></div>
+                    <button class="blackKey" data-note="f#"></button>
+                    <button class="blackKey" data-note="g#"></button>
+                    <button class="blackKey" data-note="a#"></button>
+                    <div class="blackKeySpacer"></div>
+                </div>
+            </div>
+
+            <div class="octaveContainer" data-octave="4">
+                <div class="whiteKeyContainer">
+                    <button class="whiteKey" data-note="c"></button>
+                    <button class="whiteKey" data-note="d"></button>
+                    <button class="whiteKey" data-note="e"></button>
+                    <button class="whiteKey" data-note="f"></button>
+                    <button class="whiteKey" data-note="g"></button>
+                    <button class="whiteKey" data-note="a"></button>
+                    <button class="whiteKey" data-note="b"></button>
+                </div>
+                <div class="blackKeyContainer">
+                    <div class="blackKeySpacer"></div>
+                    <button class="blackKey" data-note="c#"></button>
+                    <button class="blackKey" data-note="d#"></button>
+                    <div class="blackKeySpacer"></div>
+                    <div class="blackKeySpacer"></div>
+                    <button class="blackKey" data-note="f#"></button>
+                    <button class="blackKey" data-note="g#"></button>
+                    <button class="blackKey" data-note="a#"></button>
+                    <div class="blackKeySpacer"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
