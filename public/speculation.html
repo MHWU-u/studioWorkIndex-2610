@@ -12,56 +12,83 @@
             margin-bottom: 1rem;
         }
 
-        .experiment-block {
-            margin-top: 2rem;
-            padding: 1.25rem;
+        .reference-figure {
+            margin: 1rem 0 1.25rem 0;
+        }
+
+        .reference-figure img {
+            display: block;
+            width: 100%;
+            max-width: 680px;
             border: 1px solid #d9d9d9;
-            border-radius: 14px;
+            border-radius: 10px;
+        }
+
+        .reference-figure figcaption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .experiment-block {
+            margin-top: 1.75rem;
+            padding: 1rem;
+            border: 1px solid #d9d9d9;
+            border-radius: 12px;
             background: #ffffff;
         }
 
         .experiment-ui {
-            margin-top: 1rem;
+            margin-top: 0.75rem;
         }
 
         .control-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .control-row label {
+            font-size: 0.92rem;
         }
 
         .control-row button {
-            padding: 0.6rem 1rem;
+            padding: 0.45rem 0.75rem;
             border: 1px solid #222;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 7px;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
         }
 
         .control-row button:hover {
             background: #f2f2f2;
         }
 
+        .control-row input[type="range"] {
+            width: 120px;
+        }
+
         .mini-grid {
             display: grid;
-            grid-template-columns: repeat(3, 70px);
-            gap: 8px;
-            margin-bottom: 1rem;
+            grid-template-columns: repeat(3, 54px);
+            gap: 6px;
+            margin-bottom: 0.75rem;
         }
 
         .mini-cell {
-            width: 70px;
-            height: 70px;
+            width: 54px;
+            height: 54px;
             border: 1px solid #bbb;
-            border-radius: 8px;
+            border-radius: 7px;
             background: #fafafa;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             cursor: pointer;
         }
 
@@ -71,31 +98,32 @@
 
         .mini-stage {
             width: 100%;
-            max-width: 360px;
-            height: 180px;
+            max-width: 280px;
+            height: 130px;
             border: 1px solid #bbb;
-            border-radius: 10px;
+            border-radius: 8px;
             background: #fafafa;
             position: relative;
             overflow: hidden;
         }
 
         .mini-preview {
-            width: 80px;
-            height: 80px;
+            width: 56px;
+            height: 56px;
             border: 1px solid #bbb;
-            border-radius: 10px;
+            border-radius: 8px;
             background: #fafafa;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            font-size: 1.6rem;
         }
 
         .large-preview {
-            width: 110px;
-            height: 110px;
-            font-size: 3rem;
+            width: 72px;
+            height: 72px;
+            font-size: 2rem;
         }
 
         .mini-preview span {
@@ -109,7 +137,14 @@
             transform-origin: center center;
             user-select: none;
             pointer-events: none;
-            font-size: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .experiment-note {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
         }
 
         .resource-links ul {
@@ -151,6 +186,7 @@
                 different positions to create an image. The user can also change the size of the emoji, rotate them, and mirror
                 them, so the final composition is not only random but also shaped by the user’s own choices.
             </p>
+
             <p>
                 The main idea comes from Xu Bing’s <em>Book from the Ground</em>. In that project, he used visual symbols to build
                 a communication system that can be understood without depending too much on one specific spoken language. I think
@@ -159,6 +195,15 @@
                 emoji in a similar way. Because of this, I want to use emoji not only as symbols for chatting, but also as the
                 material for image-making.
             </p>
+
+            <figure class="reference-figure">
+                <img src="assets/images/xu-bing-wordmagic.jpg" alt="Reference image from Xu Bing's Book from the Ground showing communication through symbolic icons." />
+                <figcaption>
+                    Reference image: Xu Bing’s <em>Book from the Ground</em>. This project uses a symbol-based communication system,
+                    which inspired me to think about emoji as a shared visual language.
+                </figcaption>
+            </figure>
+
             <p>
                 The purpose of my project is to let users cross over the traditional barrier of drawing skill. In many drawing
                 tools, users need to know how to control lines, colour, or composition from the beginning. My project tries to
@@ -166,6 +211,7 @@
                 creative process becomes one of choosing, arranging, repeating, transforming, and combining. I think this can
                 make digital drawing feel more open and playful.
             </p>
+
             <p>
                 At the same time, I also want the project to question what “drawing” means. The image is produced by the
                 relationship between many small existing signs. This makes the project both interactive and conceptual. It is
@@ -183,6 +229,7 @@
                 decide where to place them, and adjust their appearance. This means the project can invite people who may not
                 usually use drawing tools. In this sense, the project supports a more inclusive idea of creativity.
             </p>
+
             <p>
                 Another reason the project is worth making is that it turns emoji into a new artistic material. In everyday life,
                 emoji are mostly used in messaging or social media to show emotion, reaction, or simple information. They are
@@ -191,6 +238,7 @@
                 support and start becoming part of a drawing system. I think this shift is interesting because it moves emoji
                 from communication into composition.
             </p>
+
             <p>
                 The project is also valuable because of the role of randomness. Since the emoji are generated randomly, the user
                 does not have complete control at the beginning. This creates a small challenge. The user needs to react to what
@@ -199,6 +247,7 @@
                 expressing a fixed plan, the user collaborates with the system. The final work becomes a result of both intention
                 and chance.
             </p>
+
             <p>
                 In addition, the project has worth because it is suitable for a browser-based creative tool. It does not need to
                 be as complicated as professional software. Its value comes from having one clear interaction idea and developing
@@ -217,6 +266,7 @@
                 then the user can transform it by scaling, rotating, or mirroring it. After that, the process repeats and the
                 composition slowly grows.
             </p>
+
             <p>
                 This framing is important because it helps define the project clearly. If I try to make it too complex, it may
                 lose its main idea. The project does not need brushes, colour pickers, or many editing panels. What it needs is
@@ -224,6 +274,7 @@
                 simple and direct. The page should be easy to understand at the beginning, even for first-time users. At the
                 same time, it should still allow interesting results through repetition and arrangement.
             </p>
+
             <p>
                 I also frame the project through the idea of constraint. The user has freedom, but this freedom is limited by the
                 system. They cannot draw anything in any way. They must work with the emoji that appear and use transformation
@@ -231,6 +282,7 @@
                 of the project. It can make the process more creative because the user needs to adapt to the system instead of
                 only controlling it.
             </p>
+
             <p>
                 Another important part of the framing is that the project is web-native. It is designed for HTML, CSS, and
                 JavaScript in the browser, not for a complex external software environment. This is meaningful because emoji
@@ -243,16 +295,13 @@
             <h3 id="interactive-experiments">Interactive experiments</h3>
             <p>
                 Instead of only writing about references, I translated them into four small interaction studies. Each experiment
-                tests one simple mechanism that can support my final emoji drawing project. At this stage, I want to keep each
-                test clear and limited, so the focus is on understanding one interaction idea at a time.
+                tests one simple mechanism that can support my final emoji drawing project.
             </p>
 
             <div class="experiment-block">
                 <h4>Experiment 1: Fixed grid placement (from Broider)</h4>
                 <p>
-                    From Broider, I learned how a composition can be built through fixed positions rather than free drawing. This
-                    small test uses a 3×3 grid and lets the user place emoji inside each square. It helps me think about emoji as
-                    modular visual units.
+                    This small test uses a 3×3 grid and lets the user place emoji inside each square.
                 </p>
 
                 <div class="experiment-ui">
@@ -261,14 +310,16 @@
                         <button id="exp1Clear">Clear grid</button>
                     </div>
                 </div>
+
+                <p class="experiment-note">
+                    This connects to Broider because both use fixed positions to build a visual composition.
+                </p>
             </div>
 
             <div class="experiment-block">
                 <h4>Experiment 2: Rotated placement (from OrbiDraw)</h4>
                 <p>
-                    From OrbiDraw, I became interested in how orientation can change the feeling of repeated forms. This
-                    experiment lets the user rotate an emoji first, then place it into a simple stage area. It tests how
-                    rotation can add variation to the same symbol.
+                    This experiment lets the user rotate an emoji first, then place it into a small stage area.
                 </p>
 
                 <div class="experiment-ui">
@@ -282,14 +333,16 @@
                     </div>
                     <div id="exp2Stage" class="mini-stage"></div>
                 </div>
+
+                <p class="experiment-note">
+                    This connects to OrbiDraw because it explores how direction and rotation can change the placed form.
+                </p>
             </div>
 
             <div class="experiment-block">
                 <h4>Experiment 3: Random emoji generation</h4>
                 <p>
-                    My final project will not begin with a fixed set chosen by the user. Instead, the system should offer emoji
-                    as visual material. This experiment tests a simple random generator that can later support the main drawing
-                    tool.
+                    This experiment tests a simple random generator that can later support the main drawing tool.
                 </p>
 
                 <div class="experiment-ui">
@@ -300,14 +353,16 @@
                         </div>
                     </div>
                 </div>
+
+                <p class="experiment-note">
+                    This can support the final project by letting the system provide visual material before the user starts composing.
+                </p>
             </div>
 
             <div class="experiment-block">
                 <h4>Experiment 4: Scale control</h4>
                 <p>
-                    Scale is a small but important function in my project, because the same emoji can play different visual roles
-                    in a composition. This experiment tests a simple slider that lets the user enlarge or reduce one emoji before
-                    placement.
+                    This experiment tests a simple slider that lets the user enlarge or reduce one emoji before placement.
                 </p>
 
                 <div class="experiment-ui">
@@ -319,6 +374,10 @@
                         <span id="exp4Preview">🌼</span>
                     </div>
                 </div>
+
+                <p class="experiment-note">
+                    This can support the final project by helping one emoji work as either a small detail or a larger visual focus.
+                </p>
             </div>
         </section>
 
