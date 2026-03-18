@@ -5,6 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Speculation</title>
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+        .prose p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .experiment-block {
+            margin-top: 2rem;
+            padding: 1.25rem;
+            border: 1px solid #d9d9d9;
+            border-radius: 14px;
+            background: #ffffff;
+        }
+
+        .experiment-ui {
+            margin-top: 1rem;
+        }
+
+        .control-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .control-row button {
+            padding: 0.6rem 1rem;
+            border: 1px solid #222;
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .control-row button:hover {
+            background: #f2f2f2;
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 70px);
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .mini-cell {
+            width: 70px;
+            height: 70px;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .mini-cell:hover {
+            background: #f0f0f0;
+        }
+
+        .mini-stage {
+            width: 100%;
+            max-width: 360px;
+            height: 180px;
+            border: 1px solid #bbb;
+            border-radius: 10px;
+            background: #fafafa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mini-preview {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #bbb;
+            border-radius: 10px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .large-preview {
+            width: 110px;
+            height: 110px;
+            font-size: 3rem;
+        }
+
+        .mini-preview span {
+            display: inline-block;
+            transform-origin: center center;
+        }
+
+        .placed-emoji {
+            position: absolute;
+            display: inline-block;
+            transform-origin: center center;
+            user-select: none;
+            pointer-events: none;
+            font-size: 2rem;
+        }
+
+        .resource-links ul {
+            padding-left: 1.25rem;
+        }
+
+        .resource-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .muted {
+            color: #666;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,235 +137,302 @@
 <main class="container">
     <article class="card prose">
         <header>
-            <h2>Working title: “Emoji Drawing as Shared Symbolic Composition”</h2>
+            <h2>Working title: Emoji Drawing as Shared Symbolic Composition</h2>
             <p class="muted">
-                A browser-based interactive drawing page that lets users compose images through random emoji rather than freehand marks.
+                A browser-based interactive drawing tool that uses emoji as visual units instead of normal lines or brushes.
             </p>
         </header>
 
         <section aria-labelledby="purpose">
             <h3 id="purpose">Purpose</h3>
             <p>
-                This project proposes an interactive web page for drawing with emoji. Instead of asking the user to draw lines,
-                paint shapes, or demonstrate traditional illustration skills, the page provides a sequence of ready-made emoji
-                that can be placed, scaled, rotated, and mirrored across the composition. The user builds an image by selecting
-                where each symbol should go and how it should behave visually. In this sense, the project shifts drawing away
-                from manual mark-making and toward arrangement, relation, and symbolic construction.
+                This project aims to build an interactive web page that allows users to make drawings with emoji instead of using
+                normal lines or brushes. On this page, the system will randomly generate emoji, and the user can place them in
+                different positions to create an image. The user can also change the size of the emoji, rotate them, and mirror
+                them, so the final composition is not only random but also shaped by the user’s own choices.
             </p>
             <p>
-                The project is inspired by Xu Bing’s <em>Book from the Ground</em>, which constructs communication through symbols,
-                pictograms, and signs that can be broadly recognised without relying on one spoken language. That precedent is
-                useful for my project because emoji already operate as an informal shared visual vocabulary on the internet.
-                They are not neutral images: each one carries cultural associations, moods, gestures, and references. By turning
-                emoji into the basic material of a drawing tool, I want to explore whether users can build images through
-                existing symbolic forms instead of starting from a blank drawing system.
+                The main idea comes from Xu Bing’s <em>Book from the Ground</em>. In that project, he used visual symbols to build
+                a communication system that can be understood without depending too much on one specific spoken language. I think
+                this idea is very inspiring for my project because emoji already work like a kind of shared visual language on the
+                internet. People from different countries may have different first languages, but they can still understand many
+                emoji in a similar way. Because of this, I want to use emoji not only as symbols for chatting, but also as the
+                material for image-making.
             </p>
             <p>
-                The purpose of the project is therefore not only to make a playful tool, but also to test a different idea of
-                what digital drawing can be. Rather than rewarding technical drawing ability, the page encourages composition
-                through selection, positioning, repetition, distortion, and juxtaposition. It asks whether an image can emerge
-                from shared symbols and whether visual expression can become more accessible when the user is not required to
-                “draw well” in a conventional sense.
+                The purpose of my project is to let users cross over the traditional barrier of drawing skill. In many drawing
+                tools, users need to know how to control lines, colour, or composition from the beginning. My project tries to
+                reduce this pressure. Instead of drawing from nothing, the user starts with ready-made visual symbols. Then the
+                creative process becomes one of choosing, arranging, repeating, transforming, and combining. I think this can
+                make digital drawing feel more open and playful.
+            </p>
+            <p>
+                At the same time, I also want the project to question what “drawing” means. The image is produced by the
+                relationship between many small existing signs. This makes the project both interactive and conceptual. It is
+                interactive because the user can directly manipulate the emoji on screen. It is conceptual because it asks
+                whether a picture can be built from a common symbolic language rather than from traditional drawing methods.
             </p>
         </section>
 
         <section aria-labelledby="worth">
             <h3 id="worth">Worth</h3>
             <p>
-                I think this project is worth making because it lowers the threshold for participation while still producing a
-                meaningful form of visual authorship. Many drawing interfaces are built around precision, skill, and confidence:
-                the user is expected to control the cursor accurately and translate an idea into a line. My project takes a
-                different position. It offers a set of already-formed visual units and asks the user to organise them into a
-                scene. This makes the tool more approachable for people who may feel excluded by conventional drawing software,
-                while still leaving room for interpretation, humour, mood, and composition.
+                I think this project is worth developing because it offers a more accessible and experimental way to create
+                images. One important value of the project is that it lowers the threshold for participation. Users do not need
+                strong drawing ability to make something visually interesting. They only need to respond to the random emoji,
+                decide where to place them, and adjust their appearance. This means the project can invite people who may not
+                usually use drawing tools. In this sense, the project supports a more inclusive idea of creativity.
             </p>
             <p>
-                The project is also worth pursuing because emoji are already part of everyday digital communication, but they are
-                usually used within text rather than treated as the primary material of image-making. Reframing emoji as movable,
-                transformable visual objects allows the project to question the boundary between writing, interface symbols, and
-                drawing. A crying face, a tree, a flame, or a shoe can become less like “text decoration” and more like a modular
-                pictorial element. This gives the work a conceptual dimension: it is not simply a novelty website, but a small
-                experiment in visual language.
+                Another reason the project is worth making is that it turns emoji into a new artistic material. In everyday life,
+                emoji are mostly used in messaging or social media to show emotion, reaction, or simple information. They are
+                usually part of writing, not part of image composition. My project changes this situation by treating emoji as
+                visual objects. Once the emoji can be moved, enlarged, rotated, or mirrored, they stop being only language
+                support and start becoming part of a drawing system. I think this shift is interesting because it moves emoji
+                from communication into composition.
             </p>
             <p>
-                Another reason the project has value is that randomness can create productive surprise. Because the emoji appear
-                through random selection, the user does not begin with total control. Instead, composition emerges through
-                negotiation between choice and chance. This can lead to more unexpected images than a standard palette would,
-                and it encourages users to respond creatively to what the interface gives them. In that sense, the project is
-                not only about expression but also about interaction design: the interface becomes a collaborator that proposes
-                material rather than simply obeying commands.
+                The project is also valuable because of the role of randomness. Since the emoji are generated randomly, the user
+                does not have complete control at the beginning. This creates a small challenge. The user needs to react to what
+                the system gives and find a way to build an image from it. I think this relationship between control and surprise
+                is important. It makes the experience more playful, but it also encourages creative thinking. Instead of only
+                expressing a fixed plan, the user collaborates with the system. The final work becomes a result of both intention
+                and chance.
             </p>
             <p>
-                Finally, the project has worth as a web-based creative tool because it can remain simple while still feeling
-                distinctive. It does not need to become a full illustration program. Its value lies in doing one thing clearly:
-                letting users construct images from a shared symbolic vocabulary through direct manipulation and playful
-                constraint.
+                In addition, the project has worth because it is suitable for a browser-based creative tool. It does not need to
+                be as complicated as professional software. Its value comes from having one clear interaction idea and developing
+                it in a focused way. A small web tool can still be meaningful if its concept is clear and its interaction is
+                enjoyable. For this project, the simple feature set is actually part of the strength.
             </p>
         </section>
 
         <section aria-labelledby="framing">
             <h3 id="framing">Framing</h3>
             <p>
-                I am framing this project as a small interactive expressive tool rather than a polished professional design
-                application. Its main focus is not efficiency or productivity, but a specific interaction idea: composing images
-                through pre-existing symbols. The project will therefore be deliberately limited in scope. The core interaction
-                loop is: generate an emoji, place it on the page, transform it, and repeat. The primary features will be random
-                emoji generation, drag-and-drop placement, scale adjustment, rotation, horizontal mirroring, and basic reset or
-                delete functions.
+                I frame this project as a small interactive expressive tool rather than a professional design platform. Its
+                purpose is not to produce highly polished illustration work, but to explore a specific form of interaction:
+                composing images with emoji through direct manipulation. Because of this, the project should remain limited and
+                focused. The main interaction loop is simple: the system generates an emoji, the user places it on the page,
+                then the user can transform it by scaling, rotating, or mirroring it. After that, the process repeats and the
+                composition slowly grows.
             </p>
             <p>
-                This framing is important because it defines the project as an exploration of constraint. Users are free to build
-                many different kinds of compositions, but they can only do so through a restricted symbolic system. That tension
-                between openness and limitation is central to the concept. The page should feel playful and accessible, but it
-                should also make users aware that they are composing with signs that already have meaning. In other words, the
-                interface is not presenting emoji as neutral shapes; it is presenting them as cultural units that can be
-                rearranged into new visual statements.
+                This framing is important because it helps define the project clearly. If I try to make it too complex, it may
+                lose its main idea. The project does not need brushes, colour pickers, or many editing panels. What it needs is
+                a clear and enjoyable way for users to interact with emoji as visual units. So I want the interface to stay
+                simple and direct. The page should be easy to understand at the beginning, even for first-time users. At the
+                same time, it should still allow interesting results through repetition and arrangement.
             </p>
             <p>
-                From an interaction design perspective, I want the framing to balance immediacy and intentionality. The tool
-                should be easy to begin using with almost no instruction, but once the user starts placing emoji, the page should
-                reveal more compositional possibilities through scale, rotation, mirroring, and layering. This gradual deepening
-                is important to the experience. The project should first feel light and intuitive, then slowly become a system
-                for experimenting with visual rhythm, orientation, density, and symbolic contrast.
+                I also frame the project through the idea of constraint. The user has freedom, but this freedom is limited by the
+                system. They cannot draw anything in any way. They must work with the emoji that appear and use transformation
+                tools to organise them. I think this balance between freedom and limitation is one of the most interesting parts
+                of the project. It can make the process more creative because the user needs to adapt to the system instead of
+                only controlling it.
             </p>
             <p>
-                I also frame the project as web-native. It should work directly in the browser with HTML, CSS, and JavaScript,
-                and it should preserve the casual immediacy of online creative tools. This matters conceptually because emoji are
-                themselves born from networked communication environments. Presenting them inside a browser-based composition tool
-                keeps the project close to the digital context from which its visual language emerges.
+                Another important part of the framing is that the project is web-native. It is designed for HTML, CSS, and
+                JavaScript in the browser, not for a complex external software environment. This is meaningful because emoji
+                themselves belong strongly to digital communication culture. They come from phones, interfaces, chats, and online
+                platforms. So using them in a browser-based tool keeps the project close to their original context.
             </p>
         </section>
 
         <section aria-labelledby="interactive-experiments">
             <h3 id="interactive-experiments">Interactive experiments</h3>
             <p>
-                My initial interactive experiments for this project focus on how constraint can still produce expressive freedom.
-                I plan to test this through both the provided examples and independently researched tools that can support the
-                project’s technical and conceptual direction.
+                Instead of only writing about references, I translated them into four small interaction studies. Each experiment
+                tests one simple mechanism that can support my final emoji drawing project. At this stage, I want to keep each
+                test clear and limited, so the focus is on understanding one interaction idea at a time.
             </p>
 
-            <h4>Provided example 1: Broider</h4>
-            <p>
-                <strong>Broider</strong> is useful because it shows how a creative tool can produce strong visual variety from a
-                very limited system. The user works with a small, rule-based structure and receives immediate feedback as the
-                design develops. What I want to take from Broider is not its border format, but its logic of composition through
-                fixed units. In my own project, emoji will function as those units. Rather than offering a blank drawing brush,
-                the interface offers discrete visual components that can be combined into larger arrangements. This supports my
-                aim of making image-making feel accessible without making it feel empty.
-            </p>
-            <p>
-                Broider also demonstrates that a simple interface can still feel satisfying if the response is immediate and the
-                constraints are clear. For my project, this suggests that each emoji placement should feel visually decisive. The
-                user should understand that every object added to the page contributes to an accumulating composition rather than
-                disappearing into an overly complex interface.
-            </p>
+            <div class="experiment-block">
+                <h4>Experiment 1: Fixed grid placement (from Broider)</h4>
+                <p>
+                    From Broider, I learned how a composition can be built through fixed positions rather than free drawing. This
+                    small test uses a 3×3 grid and lets the user place emoji inside each square. It helps me think about emoji as
+                    modular visual units.
+                </p>
 
-            <h4>Provided example 2: OrbiDraw</h4>
-            <p>
-                <strong>OrbiDraw</strong> is especially relevant because it frames drawing through a relational rule: the user
-                chooses a point, and placed stamps orient relative to that point. This is important for my project because I do
-                not want emoji placement to become only random collage. I want to test whether a simple compositional rule can
-                generate stronger visual coherence.
-            </p>
-            <p>
-                Inspired by OrbiDraw, one experiment for my project is to introduce an optional “anchor mode” in which newly
-                placed emoji rotate in relation to a central point or to the cursor position. This could make the page feel more
-                like a system than a pile of stickers. It would also allow users to discover patterns such as spirals, radiating
-                clusters, circular arrangements, or mirrored constellations. This experiment is useful because it tests how much
-                structure the tool needs in order to remain playful while still producing visually interesting outcomes.
-            </p>
+                <div class="experiment-ui">
+                    <div id="exp1Grid" class="mini-grid"></div>
+                    <div class="control-row">
+                        <button id="exp1Clear">Clear grid</button>
+                    </div>
+                </div>
+            </div>
 
-            <h4>Independently researched tool 1: interact.js</h4>
-            <p>
-                For implementation, I researched <strong>interact.js</strong> because it provides browser-based drag and drop,
-                resizing, and gesture interactions. This makes it highly relevant to my project’s central actions: moving emoji,
-                adjusting their size, and potentially supporting touch-based interaction. Using a lightweight interaction library
-                could help me build direct manipulation in a clearer and more stable way than writing every movement behaviour
-                from scratch.
-            </p>
-            <p>
-                More importantly, interact.js supports the project conceptually because it keeps the interface focused on physical
-                manipulation. The user should feel that each emoji is an object that can be picked up, positioned, and adjusted.
-                That object-based behaviour matches the idea that the project is a form of composition through symbolic units
-                rather than brush strokes.
-            </p>
+            <div class="experiment-block">
+                <h4>Experiment 2: Rotated placement (from OrbiDraw)</h4>
+                <p>
+                    From OrbiDraw, I became interested in how orientation can change the feeling of repeated forms. This
+                    experiment lets the user rotate an emoji first, then place it into a simple stage area. It tests how
+                    rotation can add variation to the same symbol.
+                </p>
 
-            <h4>Independently researched tool 2: html2canvas</h4>
-            <p>
-                I also researched <strong>html2canvas</strong> as a simple way to let users export their finished composition.
-                Since the project is about making images from emoji arrangements, it is important that the user can keep or share
-                the result. html2canvas can render a selected part of the page in the browser and turn it into an image output,
-                which makes it a practical option for a final “save artwork” function.
-            </p>
-            <p>
-                This matters because it allows the website to produce an artifact rather than only a temporary interaction. The
-                project then becomes not just a playful experiment but a tool that generates a finished visual result. That
-                supports the project’s overall value as a small creative platform rather than a one-time interface joke.
-            </p>
+                <div class="experiment-ui">
+                    <div class="control-row">
+                        <label for="exp2Rotation">Rotation: <span id="exp2RotationValue">0°</span></label>
+                        <input type="range" id="exp2Rotation" min="0" max="360" value="0" />
+                        <div class="mini-preview">
+                            <span id="exp2Preview">🌀</span>
+                        </div>
+                        <button id="exp2Clear">Clear stage</button>
+                    </div>
+                    <div id="exp2Stage" class="mini-stage"></div>
+                </div>
+            </div>
 
-            <h4>Planned prototype direction</h4>
-            <p>
-                Based on these references, my prototype will begin with a deliberately simple version: one random emoji appears at
-                a time, the user places it onto a composition area, and then adjusts its size, rotation, or mirrored state. Once
-                this core loop works, I can test whether an optional orientation rule, inspired by OrbiDraw, improves the visual
-                quality of the compositions. If the basic interaction feels stable, I will then add an export function so the
-                final composition can be saved as an image.
-            </p>
-            <p>
-                In this way, the interactive experiments are not separate from the final project. They directly shape the project
-                by helping me test which balance of freedom, randomness, transformation, and rule-based structure produces the
-                strongest experience.
-            </p>
+            <div class="experiment-block">
+                <h4>Experiment 3: Random emoji generation</h4>
+                <p>
+                    My final project will not begin with a fixed set chosen by the user. Instead, the system should offer emoji
+                    as visual material. This experiment tests a simple random generator that can later support the main drawing
+                    tool.
+                </p>
+
+                <div class="experiment-ui">
+                    <div class="control-row">
+                        <button id="exp3Generate">Generate random emoji</button>
+                        <div class="mini-preview large-preview">
+                            <span id="exp3Preview">🙂</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experiment-block">
+                <h4>Experiment 4: Scale control</h4>
+                <p>
+                    Scale is a small but important function in my project, because the same emoji can play different visual roles
+                    in a composition. This experiment tests a simple slider that lets the user enlarge or reduce one emoji before
+                    placement.
+                </p>
+
+                <div class="experiment-ui">
+                    <div class="control-row">
+                        <label for="exp4Scale">Scale: <span id="exp4ScaleValue">1.0×</span></label>
+                        <input type="range" id="exp4Scale" min="0.5" max="2.5" step="0.1" value="1" />
+                    </div>
+                    <div class="mini-preview large-preview">
+                        <span id="exp4Preview">🌼</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section aria-labelledby="references">
-            <h3 id="references">References and links</h3>
+        <section class="resource-links" aria-labelledby="links">
+            <h3 id="links">Reference links</h3>
             <ul>
                 <li>
                     Xu Bing, <em>Book from the Ground</em>:
                     <a href="https://www.xubing.com/en/work/details/188?classID=10&type=class" target="_blank" rel="noopener noreferrer">
-                        Official project page
+                        Official page
                     </a>
                 </li>
                 <li>
                     Broider:
                     <a href="https://maxbittker.github.io/broider/" target="_blank" rel="noopener noreferrer">
-                        https://maxbittker.github.io/broider/
+                        Open tool
                     </a>
                 </li>
                 <li>
                     OrbiDraw:
                     <a href="https://sirmilkman.itch.io/orbidraw" target="_blank" rel="noopener noreferrer">
-                        https://sirmilkman.itch.io/orbidraw
+                        Open tool
                     </a>
                 </li>
-                <li>
-                    interact.js documentation:
-                    <a href="https://interactjs.io/docs/" target="_blank" rel="noopener noreferrer">
-                        https://interactjs.io/docs/
-                    </a>
-                </li>
-                <li>
-                    html2canvas documentation:
-                    <a href="https://html2canvas.hertzen.com/documentation.html" target="_blank" rel="noopener noreferrer">
-                        https://html2canvas.hertzen.com/documentation.html
-                    </a>
-                </li>
-            </ul>
-        </section>
-
-        <section aria-labelledby="media">
-            <h3 id="media">Optional supporting media</h3>
-            <p>
-                To strengthen the final submission, I plan to add supporting media such as:
-            </p>
-            <ul>
-                <li>a screenshot of an early emoji composition test;</li>
-                <li>a short screen recording showing placement, scaling, rotation, and mirroring;</li>
-                <li>one reference image or screenshot from Broider and OrbiDraw to show how these examples informed the interface logic.</li>
             </ul>
         </section>
     </article>
 </main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // Experiment 1: 3x3 fixed grid placement
+        const exp1Grid = document.getElementById("exp1Grid");
+        const exp1Clear = document.getElementById("exp1Clear");
+        const exp1Emoji = "🙂";
+
+        for (let i = 0; i < 9; i++) {
+            const cell = document.createElement("div");
+            cell.className = "mini-cell";
+            cell.addEventListener("click", () => {
+                cell.textContent = exp1Emoji;
+            });
+            exp1Grid.appendChild(cell);
+        }
+
+        exp1Clear.addEventListener("click", () => {
+            document.querySelectorAll("#exp1Grid .mini-cell").forEach(cell => {
+                cell.textContent = "";
+            });
+        });
+
+        // Experiment 2: rotated placement
+        const exp2Rotation = document.getElementById("exp2Rotation");
+        const exp2RotationValue = document.getElementById("exp2RotationValue");
+        const exp2Preview = document.getElementById("exp2Preview");
+        const exp2Stage = document.getElementById("exp2Stage");
+        const exp2Clear = document.getElementById("exp2Clear");
+        const exp2Emoji = "🌀";
+
+        function updateExp2Preview() {
+            const angle = exp2Rotation.value;
+            exp2RotationValue.textContent = angle + "°";
+            exp2Preview.style.transform = `rotate(${angle}deg)`;
+        }
+
+        exp2Rotation.addEventListener("input", updateExp2Preview);
+        updateExp2Preview();
+
+        exp2Stage.addEventListener("click", (event) => {
+            const rect = exp2Stage.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const angle = exp2Rotation.value;
+
+            const emoji = document.createElement("span");
+            emoji.className = "placed-emoji";
+            emoji.textContent = exp2Emoji;
+            emoji.style.left = `${x}px`;
+            emoji.style.top = `${y}px`;
+            emoji.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+
+            exp2Stage.appendChild(emoji);
+        });
+
+        exp2Clear.addEventListener("click", () => {
+            exp2Stage.innerHTML = "";
+        });
+
+        // Experiment 3: random emoji generation
+        const exp3Generate = document.getElementById("exp3Generate");
+        const exp3Preview = document.getElementById("exp3Preview");
+        const emojiPool = ["🙂", "🌸", "🔥", "🌙", "⭐", "🍄", "🦋", "💧", "🪨", "👁️", "🐚", "🕯️"];
+
+        exp3Generate.addEventListener("click", () => {
+            const randomIndex = Math.floor(Math.random() * emojiPool.length);
+            exp3Preview.textContent = emojiPool[randomIndex];
+        });
+
+        // Experiment 4: scale control
+        const exp4Scale = document.getElementById("exp4Scale");
+        const exp4ScaleValue = document.getElementById("exp4ScaleValue");
+        const exp4Preview = document.getElementById("exp4Preview");
+
+        function updateExp4Scale() {
+            const scale = exp4Scale.value;
+            exp4ScaleValue.textContent = scale + "×";
+            exp4Preview.style.transform = `scale(${scale})`;
+        }
+
+        exp4Scale.addEventListener("input", updateExp4Scale);
+        updateExp4Scale();
+
+    });
+</script>
 </body>
 </html>
