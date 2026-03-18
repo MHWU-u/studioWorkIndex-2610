@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Experiment</title>
+  <link rel="stylesheet" href="../reset.css" />
+  <link rel="stylesheet" href="./feedbackStyle.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <p class="page-note">This page will make some noise. Turn your volume down first.</p>
+    <h1>Feedback Experiment</h1>
+
+    <section class="instrument-panel" aria-label="Interactive synthesizer area">
+      <div class="ambient-glow" aria-hidden="true"></div>
+
+      <div class="status-bar">
+        <p><span class="label">status</span> <span id="statusText">hover to preview</span></p>
+        <p><span class="label">note</span> <span id="noteText">C4</span></p>
+        <p><span class="label">mode</span> <span id="modeText">dry</span></p>
+      </div>
+
+      <button
+        id="playButton"
+        class="sound-button"
+        type="button"
+        aria-describedby="instructions"
+      >
+        <span class="button-core">Play Note</span>
+        <span class="button-ring button-ring-one" aria-hidden="true"></span>
+        <span class="button-ring button-ring-two" aria-hidden="true"></span>
+      </button>
+
+      <p id="instructions" class="instructions">
+        Move across the panel to change pitch. Hold to sustain. Double click to toggle echo mode.
+      </p>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.3.5/Tone.js"></script>
+  <script src="./feedbackMain.js"></script>
+</body>
+</html>
