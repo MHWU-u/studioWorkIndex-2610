@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Konva Template</title>
+
+  <!-- Use the reset.css from the main studioWorkIndex folder -->
+  <link rel="stylesheet" href="../reset.css" />
+  <link rel="stylesheet" href="./mappingStyle.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Konva Template</h1>
+
+    <div id="stage-parent">
+      <div id="konva-stage"></div>
+    </div>
+
+    <section class="controls">
+      <button id="drawCircleButton" type="button">Draw a Circle</button>
+
+      <div class="input-group">
+        <label for="colourNumber">Select circle colour:</label>
+        <input
+          type="number"
+          id="colourNumber"
+          name="number"
+          min="1"
+          max="7"
+          step="1"
+          value="1"
+        />
+      </div>
+    </section>
+
+    <p class="current-readout">
+      Current colour:
+      <span id="colourName">Red</span>
+    </p>
+
+    <p class="mapping-guide">
+      1 = Red, 2 = Orange, 3 = Yellow, 4 = Green, 5 = Cyan, 6 = Blue, 7 = Violet
+    </p>
+  </main>
+
+  <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+  <script src="./mappingMain.js"></script>
+</body>
+</html>
