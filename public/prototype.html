@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emoji Landscape Prototype</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      margin: 0;
+      padding: 24px;
+    }
+
+    .wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .top-bar {
+      margin-bottom: 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 8px;
+      text-decoration: none;
+      color: #222;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 24px 0;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 160px;
+    }
+
+    .wide-group {
+      min-width: 260px;
+    }
+
+    button,
+    select {
+      padding: 10px 14px;
+      border: 1px solid #222;
+      background: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover,
+    select:hover {
+      background: #eee;
+    }
+
+    input[type="range"] {
+      width: 170px;
+    }
+
+    .preview-box {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    .category-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .category-btn.active {
+      background: #222;
+      color: #fff;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .grid-section,
+    .notes {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 4px;
+      padding: 6px;
+      border-radius: 12px;
+      max-width: 760px;
+      margin-top: 16px;
+      transition: background 0.3s ease;
+      background: #cfcfcf;
+    }
+
+    .grid.theme-paper {
+      background: #cfcfcf;
+    }
+
+    .grid.theme-sky {
+      background: linear-gradient(to bottom, #8ecae6, #d9f0ff);
+    }
+
+    .grid.theme-night {
+      background: linear-gradient(to bottom, #1d3557, #0b132b);
+    }
+
+    .grid.theme-concrete {
+      background: #9e9e9e;
+    }
+
+    .cell {
+      aspect-ratio: 1 / 1;
+      border: none;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      padding: 0;
+      transition: background 0.2s ease;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .grid.theme-night .cell {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .cell:hover {
+      background: rgba(240, 240, 240, 0.95);
+    }
+
+    .grid.theme-night .cell:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .placed-emoji {
+      display: inline-block;
+      line-height: 1;
+      transform-origin: center center;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .mini-note {
+      font-size: 0.92rem;
+      color: #555;
+    }
+
+    .current-mode {
+      font-size: 0.95rem;
+      color: #444;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="top-bar">
+    <h1>Emoji Landscape Prototype</h1>
+    <p>
+      This prototype expands the earlier emoji study into a scene-making tool.
+      It keeps the simple grid system, but adds more natural and urban elements
+      so users can build small landscapes and city compositions more easily.
+    </p>
+    <a class="back-link" href="index.html">← Back to Home</a>
+  </div>
+
+  <section class="controls">
+    <div class="control-group wide-group">
+      <label><strong>Emoji category</strong></label>
+      <div class="category-buttons">
+        <button class="category-btn active" data-category="mixed">Mixed</button>
+        <button class="category-btn" data-category="nature">Nature</button>
+        <button class="category-btn" data-category="city">City</button>
+        <button class="category-btn" data-category="weather">Weather</button>
+      </div>
+      <div class="current-mode">Current category: <span id="currentCategoryLabel">Mixed</span></div>
+    </div>
+
+    <div class="control-group">
+      <label><strong>Random emoji</strong></label>
+      <button id="generateBtn">Generate Emoji</button>
+    </div>
+
+    <div class="control-group">
+      <label for="rotation"><strong>Rotation</strong>: <span id="rotationValue">0°</span></label>
+      <input type="range" id="rotation" min="0" max="360" value="0" />
+    </div>
+
+    <div class="control-group">
+      <label for="scale"><strong>Scale</strong>: <span id="scaleValue">1.0×</span></label>
+      <input type="range" id="scale" min="0.5" max="2.5" step="0.1" value="1" />
+    </div>
+
+    <div class="control-group">
+      <label><strong>Mirror</strong></label>
+      <button id="mirrorBtn">Mirror: Off</button>
+    </div>
+
+    <div class="control-group">
+      <label for="themeSelect"><strong>Stage theme</strong></label>
+      <select id="themeSelect">
+        <option value="paper">Paper</option>
+        <option value="sky">Sky</option>
+        <option value="night">Night</option>
+        <option value="concrete">Concrete</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label><strong>Current preview</strong></label>
+      <div class="preview-box">
+        <span id="previewEmoji" class="placed-emoji">🌳</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label><strong>Canvas action</strong></label>
+      <button id="clearBtn">Clear Grid</button>
+    </div>
+  </section>
+
+  <div class="layout">
+    <section class="grid-section">
+      <h2>9×9 Placement Grid</h2>
+      <p>
+        Click any square to place the current emoji with the selected category,
+        rotation, scale, and mirror settings.
+      </p>
+      <div id="grid" class="grid theme-paper"></div>
+    </section>
+
+    <aside class="notes">
+      <h2>What this version tests</h2>
+      <p><strong>Expanded visual vocabulary:</strong> more natural and city emojis support scene-building rather than only isolated symbols.</p>
+      <p><strong>Category-based generation:</strong> users can switch between different image sets depending on the type of composition they want to make.</p>
+      <p><strong>Mapping + feedback:</strong> changes in scale, rotation, and mirroring appear immediately in the preview and on the grid.</p>
+      <p><strong>Simple world-building:</strong> the stage themes help create different moods such as sky, night, or concrete urban space.</p>
+      <p class="mini-note">
+        This version keeps the project limited in scope, but makes the tool more useful for building small landscapes, mixed environments, and symbolic city scenes.
+      </p>
+    </aside>
+  </div>
+</div>
+
+<script>
+  // Design choice:
+  // The emoji sets are grouped into visual categories so the user can
+  // build more coherent scenes. This supports the project's idea of using
+  // emoji as a shared symbolic material for image-making.
+
+  const emojiSets = {
+    mixed: [
+      "🌳", "🌲", "🌴", "🌿", "🍂", "🍄", "🪨", "⛰️", "🏔️", "🌋",
+      "🌊", "💧", "🌧️", "☁️", "🌙", "⭐", "🌆", "🌃", "🏙️", "🏢",
+      "🏠", "🛣️", "🚦", "🚇", "🚗", "🚌", "🗼", "🏛️", "⛪", "🏭"
+    ],
+    nature: [
+      "🌳", "🌲", "🌴", "🌵", "🌿", "☘️", "🍀", "🍁", "🍂", "🍄",
+      "🪨", "⛰️", "🏔️", "🌋", "🏞️", "🌊", "💧", "🌧️", "☁️", "⛅",
+      "🌤️", "🌈", "🌞", "🌙", "⭐", "❄️", "🦋", "🐚", "🐟", "🪺"
+    ],
+    city: [
+      "🏙️", "🌆", "🌇", "🌃", "🏢", "🏬", "🏣", "🏭", "🏛️", "🏫",
+      "🏠", "🏡", "⛪", "🕌", "🗼", "🛣️", "🚦", "🚧", "🚇", "🚉",
+      "🚗", "🚕", "🚌", "🚲", "🛴", "🪟", "🪧", "🛎️", "🏚️", "🧱"
+    ],
+    weather: [
+      "☀️", "🌤️", "⛅", "☁️", "🌧️", "⛈️", "🌩️", "🌨️", "❄️", "🌪️",
+      "🌫️", "🌈", "🌙", "⭐", "💧", "🔥", "🫧", "💨", "🌊", "🌁"
+    ]
+  };
+
+  const generateBtn = document.getElementById("generateBtn");
+  const clearBtn = document.getElementById("clearBtn");
+  const previewEmoji = document.getElementById("previewEmoji");
+  const rotationSlider = document.getElementById("rotation");
+  const scaleSlider = document.getElementById("scale");
+  const rotationValue = document.getElementById("rotationValue");
+  const scaleValue = document.getElementById("scaleValue");
+  const mirrorBtn = document.getElementById("mirrorBtn");
+  const themeSelect = document.getElementById("themeSelect");
+  const currentCategoryLabel = document.getElementById("currentCategoryLabel");
+  const categoryButtons = document.querySelectorAll(".category-btn");
+  const grid = document.getElementById("grid");
+
+  let currentCategory = "mixed";
+  let currentEmoji = "🌳";
+  let currentRotation = 0;
+  let currentScale = 1;
+  let currentMirrored = false;
+
+  function getTransformString() {
+    const scaleX = currentMirrored ? -currentScale : currentScale;
+    return `rotate(${currentRotation}deg) scale(${scaleX}, ${currentScale})`;
+  }
+
+  function updatePreview() {
+    previewEmoji.textContent = currentEmoji;
+    previewEmoji.style.transform = getTransformString();
+  }
+
+  function generateRandomEmoji() {
+    const pool = emojiSets[currentCategory];
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    currentEmoji = pool[randomIndex];
+    updatePreview();
+  }
+
+  function setCategory(category) {
+    currentCategory = category;
+    currentCategoryLabel.textContent =
+            category.charAt(0).toUpperCase() + category.slice(1);
+
+    categoryButtons.forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.category === category);
+    });
+
+    generateRandomEmoji();
+  }
+
+  function setTheme(theme) {
+    grid.className = "grid";
+    grid.classList.add(`theme-${theme}`);
+  }
+
+  function createGrid() {
+    for (let i = 0; i < 81; i++) {
+      const cell = document.createElement("button");
+      cell.className = "cell";
+
+      cell.addEventListener("click", () => {
+        cell.innerHTML = "";
+
+        const emojiSpan = document.createElement("span");
+        emojiSpan.className = "placed-emoji";
+        emojiSpan.textContent = currentEmoji;
+
+        // Design choice:
+        // Rotation, scale, and mirroring are included because the project
+        // is not about drawing lines, but about transforming symbols into
+        // different visual roles within a composition.
+        emojiSpan.style.transform = getTransformString();
+        emojiSpan.style.fontSize = "2rem";
+
+        cell.appendChild(emojiSpan);
+      });
+
+      grid.appendChild(cell);
+    }
+  }
+
+  generateBtn.addEventListener("click", generateRandomEmoji);
+
+  rotationSlider.addEventListener("input", () => {
+    currentRotation = parseInt(rotationSlider.value);
+    rotationValue.textContent = `${currentRotation}°`;
+    updatePreview();
+  });
+
+  scaleSlider.addEventListener("input", () => {
+    currentScale = parseFloat(scaleSlider.value);
+    scaleValue.textContent = `${currentScale.toFixed(1)}×`;
+    updatePreview();
+  });
+
+  mirrorBtn.addEventListener("click", () => {
+    currentMirrored = !currentMirrored;
+    mirrorBtn.textContent = currentMirrored ? "Mirror: On" : "Mirror: Off";
+    updatePreview();
+  });
+
+  themeSelect.addEventListener("change", () => {
+    setTheme(themeSelect.value);
+  });
+
+  categoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      setCategory(button.dataset.category);
+    });
+  });
+
+  clearBtn.addEventListener("click", () => {
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(cell => {
+      cell.innerHTML = "";
+    });
+  });
+
+  createGrid();
+  setTheme("paper");
+  updatePreview();
+</script>
+</body>
+</html>
