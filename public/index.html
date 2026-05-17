@@ -6,6 +6,98 @@
     <title>Studio Work Index</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+
+    <style>
+        .featured-project {
+            border: 2px solid #222;
+            background: #fffef8;
+        }
+
+        .featured-project h2 {
+            margin-bottom: 8px;
+        }
+
+        .project-label {
+            display: inline-block;
+            background: #222;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .project-summary {
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .primary-button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: #222;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #222;
+        }
+
+        .primary-button:hover {
+            background: #444;
+        }
+
+        .secondary-button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: #fff;
+            color: #222;
+            text-decoration: none;
+            border: 1px solid #222;
+        }
+
+        .secondary-button:hover {
+            background: #eee;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .feature-box {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            background: #fff;
+        }
+
+        .feature-box h3 {
+            margin-top: 0;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .feature-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 800px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,6 +114,48 @@
             <strong>Comfortable tool:</strong> Procreate (graphic design &amp; illustration)<br />
             <strong>Coding experience:</strong> First time
         </p>
+    </section>
+
+    <!-- Featured project section added to make the main studio project more visible on the index page. -->
+    <section id="studio-project" class="card featured-project">
+        <span class="project-label">Featured Studio Project</span>
+        <h2>Emoji Landscape Prototype</h2>
+
+        <p class="project-summary">
+            <strong>Emoji Landscape</strong> is a browser-based creative tool that allows users to build small symbolic landscapes and city scenes using emoji. Instead of drawing with brushes or lines, users create compositions by selecting, placing, rotating, scaling and mirroring visual symbols on a 9×9 grid.
+        </p>
+
+        <p>
+            The project explores emoji as a shared digital visual language. It focuses on mapping and feedback: each control immediately changes how the emoji appears, helping users understand the relationship between interaction and visual result.
+        </p>
+
+        <div class="project-actions">
+            <a class="primary-button" href="prototype.html">Open Studio Project Prototype</a>
+            <a class="secondary-button" href="speculation.html">Read Project Speculation</a>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h3>Core interaction</h3>
+                <p>
+                    Users can generate, select and place emoji on a structured 9×9 composition grid.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Creative controls</h3>
+                <p>
+                    Rotation, scale, mirror and stage themes allow users to transform symbols into different visual roles.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Peer feedback updates</h3>
+                <p>
+                    The prototype now includes manual emoji input, single-cell erase mode and image download.
+                </p>
+            </div>
+        </div>
     </section>
 
     <section id="experiments" class="card">
@@ -68,6 +202,7 @@
 
         <h3>3. Project prototype</h3>
         <p>
+            The project prototype is now highlighted as a separate featured section near the top of this index page. It can also be accessed here:
             <a href="prototype.html">Link to project prototype</a>
         </p>
 
