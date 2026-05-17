@@ -105,23 +105,6 @@
       font-size: 1.2rem;
     }
 
-    .emoji-palette {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      max-width: 260px;
-    }
-
-    .emoji-palette button {
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     .preview-box {
       width: 120px;
       height: 120px;
@@ -135,13 +118,6 @@
       overflow: hidden;
     }
 
-    .category-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .category-btn.active,
     .utility-btn.active {
       background: #222;
       color: #fff;
@@ -252,56 +228,33 @@
     }
   </style>
 </head>
+
 <body>
 <div class="wrapper">
   <div class="top-bar">
     <h1>Emoji Landscape Prototype</h1>
     <p>
       This prototype expands the earlier emoji study into a scene-making tool.
-      It keeps the simple grid system, but adds more natural and urban elements
-      so users can build small landscapes and city compositions more easily.
+      It keeps the simple grid system and lets users build small landscapes,
+      city scenes, or symbolic compositions through emoji placement and transformation.
     </p>
     <a class="back-link" href="index.html">← Back to Home</a>
   </div>
 
   <section class="controls">
-    <div class="control-group wide-group">
-      <label><strong>Emoji category</strong></label>
-      <div class="category-buttons">
-        <button class="category-btn active" data-category="mixed">Mixed</button>
-        <button class="category-btn" data-category="nature">Nature</button>
-        <button class="category-btn" data-category="city">City</button>
-        <button class="category-btn" data-category="weather">Weather</button>
-      </div>
-      <div class="current-mode">Current category: <span id="currentCategoryLabel">Mixed</span></div>
-    </div>
-
     <div class="control-group">
       <label><strong>Random emoji</strong></label>
       <button id="generateBtn">Generate Emoji</button>
+      <div class="current-mode">Create a random visual symbol.</div>
     </div>
 
     <div class="control-group wide-group">
       <label for="emojiInput"><strong>Choose your own emoji</strong></label>
       <div class="emoji-input-row">
-        <input id="emojiInput" type="text" placeholder="Type" />
+        <input id="emojiInput" type="text" placeholder="🌳" />
         <button id="useEmojiBtn">Use</button>
       </div>
-      <div class="emoji-palette">
-        <button class="palette-btn" data-emoji="🌳">🌳</button>
-        <button class="palette-btn" data-emoji="🌿">🌿</button>
-        <button class="palette-btn" data-emoji="🍄">🍄</button>
-        <button class="palette-btn" data-emoji="🪨">🪨</button>
-        <button class="palette-btn" data-emoji="🌊">🌊</button>
-        <button class="palette-btn" data-emoji="☁️">☁️</button>
-        <button class="palette-btn" data-emoji="🌙">🌙</button>
-        <button class="palette-btn" data-emoji="⭐">⭐</button>
-        <button class="palette-btn" data-emoji="🏙️">🏙️</button>
-        <button class="palette-btn" data-emoji="🏠">🏠</button>
-        <button class="palette-btn" data-emoji="🚦">🚦</button>
-        <button class="palette-btn" data-emoji="🔥">🔥</button>
-      </div>
-      <div class="current-mode">Type an emoji or select one from the palette.</div>
+      <div class="current-mode">Type one emoji, then click Use or press Enter.</div>
     </div>
 
     <div class="control-group">
@@ -353,21 +306,21 @@
     <section class="grid-section">
       <h2>9×9 Placement Grid</h2>
       <p>
-        Click any square to place the current emoji with the selected category,
-        rotation, scale, and mirror settings. Turn on erase mode to remove a single emoji.
+        Click any square to place the current emoji with the selected rotation,
+        scale, and mirror settings. Turn on erase mode to remove a single emoji.
       </p>
       <div id="grid" class="grid theme-paper"></div>
     </section>
 
     <aside class="notes">
       <h2>What this version tests</h2>
-      <p><strong>Expanded visual vocabulary:</strong> more natural and city emojis support scene-building rather than only isolated symbols.</p>
-      <p><strong>User agency:</strong> users can now type or select their own emoji instead of only using random generation.</p>
+      <p><strong>Simplified interaction:</strong> the interface now focuses on two main ways of choosing emoji: random generation and manual input.</p>
+      <p><strong>User agency:</strong> users can type their own emoji instead of only depending on the system to generate one.</p>
       <p><strong>Local editing:</strong> erase mode allows users to remove one emoji at a time, making the tool easier to revise.</p>
       <p><strong>Mapping + feedback:</strong> changes in scale, rotation, and mirroring appear immediately in the preview and on the grid.</p>
       <p><strong>Exportable output:</strong> the download function turns the final composition into a shareable image file.</p>
       <p class="mini-note">
-        This version keeps the project limited in scope, but makes the tool more useful for building small landscapes, mixed environments, and symbolic city scenes.
+        This version keeps the project limited in scope and makes the tool easier to understand during a short class demonstration.
       </p>
     </aside>
   </div>
@@ -375,31 +328,17 @@
 
 <script>
   // Design choice:
-  // The emoji sets are grouped into visual categories so the user can
-  // build more coherent scenes. This supports the project's idea of using
-  // emoji as a shared symbolic material for image-making.
+  // The random emoji pool gives users a quick starting point.
+  // The manual input gives users more control, responding to peer testing feedback
+  // that asked for a more direct way to choose emoji.
 
-  const emojiSets = {
-    mixed: [
-      "🌳", "🌲", "🌴", "🌿", "🍂", "🍄", "🪨", "⛰️", "🏔️", "🌋",
-      "🌊", "💧", "🌧️", "☁️", "🌙", "⭐", "🌆", "🌃", "🏙️", "🏢",
-      "🏠", "🛣️", "🚦", "🚇", "🚗", "🚌", "🗼", "🏛️", "⛪", "🏭"
-    ],
-    nature: [
-      "🌳", "🌲", "🌴", "🌵", "🌿", "☘️", "🍀", "🍁", "🍂", "🍄",
-      "🪨", "⛰️", "🏔️", "🌋", "🏞️", "🌊", "💧", "🌧️", "☁️", "⛅",
-      "🌤️", "🌈", "🌞", "🌙", "⭐", "❄️", "🦋", "🐚", "🐟", "🪺"
-    ],
-    city: [
-      "🏙️", "🌆", "🌇", "🌃", "🏢", "🏬", "🏣", "🏭", "🏛️", "🏫",
-      "🏠", "🏡", "⛪", "🕌", "🗼", "🛣️", "🚦", "🚧", "🚇", "🚉",
-      "🚗", "🚕", "🚌", "🚲", "🛴", "🪟", "🪧", "🛎️", "🏚️", "🧱"
-    ],
-    weather: [
-      "☀️", "🌤️", "⛅", "☁️", "🌧️", "⛈️", "🌩️", "🌨️", "❄️", "🌪️",
-      "🌫️", "🌈", "🌙", "⭐", "💧", "🔥", "🫧", "💨", "🌊", "🌁"
-    ]
-  };
+  const emojiPool = [
+    "🌳", "🌲", "🌴", "🌿", "🍂", "🍄", "🪨", "⛰️", "🏔️", "🌋",
+    "🌊", "💧", "🌧️", "☁️", "🌙", "⭐", "🌆", "🌃", "🏙️", "🏢",
+    "🏠", "🛣️", "🚦", "🚇", "🚗", "🚌", "🗼", "🏛️", "⛪", "🏭",
+    "☀️", "🌤️", "⛅", "⛈️", "🌩️", "🌨️", "❄️", "🌪️", "🌫️",
+    "🌈", "🔥", "💨", "🌁", "🦋", "🐚", "🐟", "🪺", "🧱", "🚧"
+  ];
 
   const generateBtn = document.getElementById("generateBtn");
   const clearBtn = document.getElementById("clearBtn");
@@ -412,14 +351,10 @@
   const scaleValue = document.getElementById("scaleValue");
   const mirrorBtn = document.getElementById("mirrorBtn");
   const themeSelect = document.getElementById("themeSelect");
-  const currentCategoryLabel = document.getElementById("currentCategoryLabel");
-  const categoryButtons = document.querySelectorAll(".category-btn");
-  const paletteButtons = document.querySelectorAll(".palette-btn");
   const emojiInput = document.getElementById("emojiInput");
   const useEmojiBtn = document.getElementById("useEmojiBtn");
   const grid = document.getElementById("grid");
 
-  let currentCategory = "mixed";
   let currentEmoji = "🌳";
   let currentRotation = 0;
   let currentScale = 1;
@@ -443,9 +378,8 @@
   }
 
   function generateRandomEmoji() {
-    const pool = emojiSets[currentCategory];
-    const randomIndex = Math.floor(Math.random() * pool.length);
-    currentEmoji = pool[randomIndex];
+    const randomIndex = Math.floor(Math.random() * emojiPool.length);
+    currentEmoji = emojiPool[randomIndex];
     emojiInput.value = currentEmoji;
     updatePreview();
   }
@@ -457,18 +391,6 @@
       currentEmoji = typedEmoji;
       updatePreview();
     }
-  }
-
-  function setCategory(category) {
-    currentCategory = category;
-    currentCategoryLabel.textContent =
-            category.charAt(0).toUpperCase() + category.slice(1);
-
-    categoryButtons.forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.category === category);
-    });
-
-    generateRandomEmoji();
   }
 
   function setTheme(theme) {
@@ -651,17 +573,6 @@
     }
   });
 
-  paletteButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      // Peer feedback response:
-      // The palette gives users a direct selection method, so the tool is not dependent
-      // only on random emoji generation.
-      currentEmoji = button.dataset.emoji;
-      emojiInput.value = currentEmoji;
-      updatePreview();
-    });
-  });
-
   rotationSlider.addEventListener("input", () => {
     currentRotation = parseInt(rotationSlider.value);
     rotationValue.textContent = `${currentRotation}°`;
@@ -682,12 +593,6 @@
 
   themeSelect.addEventListener("change", () => {
     setTheme(themeSelect.value);
-  });
-
-  categoryButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      setCategory(button.dataset.category);
-    });
   });
 
   eraseModeBtn.addEventListener("click", toggleEraseMode);
