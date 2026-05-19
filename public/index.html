@@ -90,6 +90,19 @@
         .feature-box p {
             margin: 0;
             font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .submission-note {
+            border-left: 4px solid #222;
+            padding-left: 12px;
+            margin-top: 18px;
+            color: #333;
+        }
+
+        .small-text {
+            font-size: 0.95rem;
+            color: #555;
         }
 
         @media (max-width: 800px) {
@@ -116,21 +129,20 @@
         </p>
     </section>
 
-    <!-- Featured project section added to make the main studio project more visible on the index page. -->
     <section id="studio-project" class="card featured-project">
-        <span class="project-label">Featured Studio Project</span>
-        <h2>Emoji Landscape Prototype</h2>
+        <span class="project-label">Final Studio Project</span>
+        <h2>Emoji Landscape</h2>
 
         <p class="project-summary">
-            <strong>Emoji Landscape</strong> is a browser-based creative tool that allows users to build small symbolic landscapes and city scenes using emoji. Instead of drawing with brushes or lines, users create compositions by selecting, placing, rotating, scaling and mirroring visual symbols on a 9×9 grid.
+            <strong>Emoji Landscape</strong> is a small browser-based creative tool for building symbolic landscapes, city scenes and visual compositions with emoji. Instead of drawing with lines or brushes, users choose or randomise emoji, transform them, place them on a 9×9 grid, revise individual cells and export the final image.
         </p>
 
         <p>
-            The project explores emoji as a shared digital visual language. It focuses on mapping and feedback: each control immediately changes how the emoji appears, helping users understand the relationship between interaction and visual result.
+            The project treats emoji as a shared digital visual language. It explores how simple symbols can become building blocks for image-making. The main interaction principles are <strong>mapping</strong> and <strong>feedback</strong>: rotation, scale, mirror and theme controls immediately change what the user sees in the preview and on the grid.
         </p>
 
         <div class="project-actions">
-            <a class="primary-button" href="prototype.html">Open Studio Project Prototype</a>
+            <a class="primary-button" href="final.html">Open Final Studio Project</a>
             <a class="secondary-button" href="speculation.html">Read Project Speculation</a>
         </div>
 
@@ -138,29 +150,36 @@
             <div class="feature-box">
                 <h3>Core interaction</h3>
                 <p>
-                    Users can generate, select and place emoji on a structured 9×9 composition grid.
+                    Users can generate a random emoji or type their own emoji, then place it onto a structured 9×9 grid.
                 </p>
             </div>
 
             <div class="feature-box">
                 <h3>Creative controls</h3>
                 <p>
-                    Rotation, scale, mirror and stage themes allow users to transform symbols into different visual roles.
+                    Rotation, scale, mirror and stage themes let users transform simple symbols into different visual roles.
                 </p>
             </div>
 
             <div class="feature-box">
-                <h3>Peer feedback updates</h3>
+                <h3>Final updates</h3>
                 <p>
-                    The prototype now includes manual emoji input, single-cell erase mode and image download.
+                    The final version includes manual emoji input, single-cell erase mode, simplified controls and image download.
                 </p>
             </div>
         </div>
+
+        <p class="submission-note">
+            This index page is the main submission link. The final creative tool can be accessed through the <strong>Open Final Studio Project</strong> button above.
+        </p>
     </section>
 
     <section id="experiments" class="card">
         <h2>In-class Design Experiments</h2>
-        <p>Live links (placeholders for now — replace with your Netlify/Neocities URLs later):</p>
+        <p>
+            Links to my in-class design experiments and studio project development:
+        </p>
+
         <ol class="link-list">
             <li>
                 <a href="informationDesignExperiment/index.html">Experiment 1 — Information Design</a>
@@ -175,68 +194,45 @@
     </section>
 
     <section class="card">
-        <h2>Studio Project Speculation</h2>
-        <p>
-            A 500–1500 word speculation describing initial design judgements about purpose, worth, and framing.
-        </p>
-        <a class="button" href="speculation.html">Read speculation</a>
+        <h2>Project Development</h2>
 
-        <h3>1. Conceptual response to the project brief</h3>
+        <h3>Conceptual response</h3>
         <p>
-            This project responds to the brief by creating a small browser-based creative tool that lets users make images with emoji. Instead of drawing with lines or brushes, the user builds a composition by placing and changing visual symbols.
-        </p>
-        <p>
-            The idea comes from thinking about emoji as a shared digital language. They are usually used in messages, but they become a material for image-making in this project. A key reference for this project is Xu Bing’s <em>Book from the Ground</em>, which uses symbols to communicate across language. And it helped me think about how emoji can work as a simple and accessible visual system.
-        </p>
-        <p>
-            The project mainly explores mapping and feedback. Mapping shows in how the controls affect each emoji, such as scale and rotation. Feedback shows in the immediate visual change on screen. Overall, the project is meant to be a small expressive tool that is easy to use, playful, and open to experimentation.
+            This project responds to the studio brief by creating a small interactive expressive tool for web browsers. It uses emoji as a symbolic material for image-making, rather than as decoration in messages. The tool is designed to be playful, accessible and open-ended.
         </p>
 
-        <h3>2. Technical approach to implementation</h3>
+        <h3>Technical approach</h3>
         <p>
-            The main features are generating emoji, placing them on the stage, and changing their appearance. Users can adjust scale, rotation, and mirror effects to build different kinds of compositions. JavaScript stores and updates these changes, while CSS is used to display them visually.
-        </p>
-        <p>
-            I want to keep the implementation simple and focused on the main idea of the project. The goal is to create a small creative tool with a clear interaction system. Code comments in the prototype will also explain how the design choices connect to the concept.
+            The final tool is built with HTML, CSS and JavaScript. The interface uses a clear control panel, a live preview, a structured grid and simple export functionality. Code comments in the final project explain the design choices, including conceptual response, technical approach, characterisation, learnability and usability.
         </p>
 
-        <h3>3. Project prototype</h3>
+        <h3>Design decisions</h3>
         <p>
-            The project prototype is now highlighted as a separate featured section near the top of this index page. It can also be accessed here:
-            <a href="prototype.html">Link to project prototype</a>
+            The 9×9 grid is kept as a deliberate limitation. It gives users a clear structure and reduces the difficulty of deciding exact freehand placement. The final version also removes the earlier category buttons and emoji palette so the interaction is simpler and easier to learn.
         </p>
 
-        <h3>4. Peer user testing form</h3>
+        <h3>Peer feedback response</h3>
         <p>
-            <a href="https://forms.office.com/r/Gf8VhzDAi0?origin=lprLink" target="_blank" rel="noopener noreferrer">Link to peer user testing form</a>
+            Peer user testing showed that the tool worked well as a simple creative system, but users wanted more control and easier editing. In response, the final version adds manual emoji input, single-cell erase mode and a download function. These changes make the tool more usable while keeping the project limited in scope.
         </p>
 
-        <h3>5. Reflecting on responses from peer user testing</h3>
-        <p>
-            The peer user testing showed that the prototype is already working well as a simple creative tool. Most users were able to make an image they liked, and many used it through exploration. This suggests that the project is successful in encouraging playful experimentation, which is one of its main aims. The controls were also generally easy to understand, and the random emoji feature was seen as helpful for creativity.
-        </p>
-        <p>
-            At the same time, the feedback also showed some areas to improve. A few users suggested making the layout clearer so the controls and grid can be seen more easily together. Others mentioned that features such as mirror could be more obvious, and that resetting scale and rotation when a new emoji is generated might make the interaction smoother.
-        </p>
-        <p>
-            Some users also wanted a little more control, such as an emoji selector, a delete function, or a download option. Overall, the testing confirmed that the prototype has a strong base, and the next step is to refine the interface and add a few small improvements.
-        </p>
+        <div class="project-actions">
+            <a class="secondary-button" href="prototype.html">View Earlier Prototype</a>
+            <a class="secondary-button" href="https://forms.office.com/r/Gf8VhzDAi0?origin=lprLink" target="_blank" rel="noopener noreferrer">View Peer Testing Form</a>
+        </div>
 
-        <h3>6. Project development timeline</h3>
-        <p>
-            So far, the project has developed from a broad idea about visual communication into a more focused emoji-based drawing tool. Early experiments helped me test interaction ideas such as random generation, placement, and transformation.
-        </p>
-        <p>
-            Compared with the initial plan, I’m planning to make the project more diverse, create a more interesting user experience and encourage users' creativity.
-        </p>
-        <p>
-            In the next four weeks, I plan to improve the prototype, respond to peer testing feedback, refine the interface, and prepare the final version for submission.
+        <p class="small-text">
+            The earlier prototype remains available as part of the project development process, while <strong>final.html</strong> is the completed studio project version.
         </p>
     </section>
 
     <section id="links" class="card">
         <h2>Links</h2>
         <ul class="link-list">
+            <li>
+                Final Studio Project:
+                <a href="final.html">Emoji Landscape</a>
+            </li>
             <li>
                 GitHub:
                 <a href="https://github.com/MHWU-u" target="_blank" rel="noopener noreferrer">
