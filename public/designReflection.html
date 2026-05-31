@@ -1,219 +1,437 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Design reflection for Emoji Landscape, a browser-based creative tool by Jinge Su.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Design Reflection — Emoji Landscape</title>
-  <link rel="stylesheet" href="design-reflection.css">
-  <script src="design-reflection.js" defer></script>
-</head>
-<body>
-<div class="reading-progress" aria-hidden="true"><div id="readingProgress"></div></div>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
 
+  <style>
+    .reflection-header {
+      border: 2px solid #222;
+      background: #fffef8;
+    }
+
+    .reflection-label {
+      display: inline-block;
+      background: #222;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    .page-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .primary-button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #222;
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid #222;
+    }
+
+    .primary-button:hover {
+      background: #444;
+    }
+
+    .secondary-button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #fff;
+      color: #222;
+      text-decoration: none;
+      border: 1px solid #222;
+    }
+
+    .secondary-button:hover {
+      background: #eee;
+    }
+
+    .reflection-section h2 {
+      margin-bottom: 14px;
+    }
+
+    .reflection-section h3 {
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .reflection-section p {
+      line-height: 1.65;
+    }
+
+    .timeline-wrapper {
+      overflow-x: auto;
+      margin-top: 16px;
+      margin-bottom: 18px;
+    }
+
+    .timeline-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    .timeline-table th,
+    .timeline-table td {
+      border: 1px solid #bbb;
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .timeline-table th {
+      background: #eee;
+    }
+
+    .peer-project {
+      margin-top: 20px;
+      padding-top: 4px;
+    }
+
+    .peer-project h3 {
+      margin-bottom: 4px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+
+    .small-text {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    @media (max-width: 800px) {
+      .page-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
 <header class="site-header">
-  <div class="site-header__inner">
-    <a class="back-link" href="index.html">← Studio Work Index</a>
-    <nav aria-label="Primary navigation">
-      <a href="final.html">Final Tool</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#peer-feedback">Peer Feedback</a>
-    </nav>
-  </div>
+  <h1>Studio Work Index</h1>
 </header>
 
-<main>
-  <section class="hero" aria-labelledby="page-title">
-    <div>
-      <p class="eyebrow">Digital Media Studio · 2026</p>
-      <h1 id="page-title">Design Reflection</h1>
-      <p class="hero__subtitle">A reflection on the design process behind <strong>Emoji Landscape</strong>, a browser-based creative tool for making symbolic scenes with emoji.</p>
-      <div class="hero__actions">
-        <a class="button button--primary" href="final.html">Open final tool</a>
-        <a class="button button--secondary" href="#purpose">Read reflection</a>
-      </div>
-    </div>
-    <div class="hero__visual" aria-label="Decorative emoji landscape grid">
-      <div class="mini-grid" aria-hidden="true">
-        <span>☁️</span><span></span><span>🦋</span><span></span><span>🌙</span>
-        <span></span><span>💧</span><span></span><span>⛰️</span><span></span>
-        <span>🌲</span><span></span><span>🚗</span><span></span><span>🌲</span>
-        <span></span><span>🪨</span><span></span><span>🏢</span><span></span>
-        <span>🌲</span><span></span><span>🪨</span><span></span><span>✨</span>
-      </div>
-      <p>choose · transform · place · revise</p>
+<main class="container">
+  <section class="card reflection-header">
+    <span class="reflection-label">Design Reflection</span>
+    <h2>Emoji Landscape</h2>
+
+    <p>
+      A reflection on the process of designing my final studio project.
+    </p>
+
+    <div class="page-actions">
+      <a class="primary-button" href="final.html">Open Final Studio Project</a>
+      <a class="secondary-button" href="index.html">Return to Studio Work Index</a>
     </div>
   </section>
 
-  <div class="page-layout">
-    <aside class="section-nav" aria-label="Reflection sections">
-      <p class="section-nav__title">On this page</p>
-      <ol>
-        <li><a href="#purpose">Purpose</a></li>
-        <li><a href="#worth">Judgement of worth</a></li>
-        <li><a href="#principles">Interaction principles</a></li>
-        <li><a href="#exploration">Design judgements</a></li>
-        <li><a href="#timeline">Production timeline</a></li>
-        <li><a href="#proud">What I am proud of</a></li>
-        <li><a href="#challenge">Most challenging aspect</a></li>
-        <li><a href="#peer-contrast">Peer contrast</a></li>
-        <li><a href="#peer-feedback">General peer feedback</a></li>
-      </ol>
-    </aside>
+  <section class="card reflection-section">
+    <h2>1. Project Purpose and Initial Direction</h2>
 
-    <article class="reflection">
-      <section class="reflection-section" id="purpose">
-        <p class="section-number">01</p>
-        <h2>Project Purpose and Initial Direction</h2>
-        <p>For my final studio project, I designed <strong>Emoji Landscape</strong>, a small browser-based creative tool for making symbolic scenes with emoji. Instead of drawing with lines, brushes or complex illustration software, users can choose an emoji, transform it and place it onto a 9×9 grid. They can build a landscape, a city scene or a more abstract composition through a series of simple decisions.</p>
-        <p>My initial judgement of purpose was to make image-making feel more accessible and less intimidating. I wanted to create a tool that did not require advanced drawing skills or a long learning process. Emoji already exist in everyday digital communication, so most users understand them without needing further explanation.</p>
-        <p>The final design still follows this original purpose. The tool is simple enough for a user to understand quickly, but it does not only produce one type of image. Users can generate a random emoji or type their own symbol. They can change its scale, rotation and direction before placing it. They can also revise individual cells and download their final composition. These functions allow users to make personal choices without making the interface too complicated.</p>
-      </section>
+    <p>
+      For my final studio project, I designed Emoji Landscape, a small browser-based creative tool for making symbolic scenes with emoji. Instead of drawing with lines, brushes or complex illustration software, users can choose an emoji, transform it and place it onto a 9×9 grid. They can build a landscape, a city scene or a more abstract composition through a series of simple decisions.
+    </p>
 
-      <section class="reflection-section" id="worth">
-        <p class="section-number">02</p>
-        <h2>Judgement of Worth</h2>
-        <p>At the beginning of the project, I identified several values that I wanted the tool to communicate: <strong>accessibility, playfulness, learnability and open-endedness</strong>. These values guided my design decisions throughout the process.</p>
-        <div class="value-grid">
-          <article class="value-card blue"><span>👆</span><h3>Accessibility</h3><p>The grid provides a clear starting point. Emoji are familiar symbols, so users do not need to learn a new visual language before they begin.</p></article>
-          <article class="value-card pink"><span>🎲</span><h3>Playfulness</h3><p>The random emoji function introduces surprise. An unexpected car, building or animal can change the direction of a composition.</p></article>
-          <article class="value-card green"><span>🧩</span><h3>Learnability</h3><p>Users can immediately see what happens when they change scale, rotate an emoji or switch on mirror mode.</p></article>
-          <article class="value-card yellow"><span>✨</span><h3>Open-endedness</h3><p>A composition can become a recognisable landscape, a pattern, a symbolic scene or a collection of unrelated objects.</p></article>
-        </div>
-      </section>
+    <p>
+      My initial judgement of purpose was to make image-making feel more accessible and less intimidating. I wanted to create a tool that did not require advanced drawing skills or a long learning process. Emoji already exist in everyday digital communication, so most users understand them without needing further explanation.
+    </p>
 
-      <section class="reflection-section" id="principles">
-        <p class="section-number">03</p>
-        <h2>Interaction Principles: Mapping and Feedback</h2>
-        <div class="principle-grid">
-          <article class="principle-card">
-            <p class="small-label">Mapping</p>
-            <h3>Action and result stay visibly connected.</h3>
-            <p>Mapping refers to the relationship between a user action and the result that appears on screen. In Emoji Landscape, each control has a visible and predictable effect.</p>
-            <p class="mini-flow">rotate → 🔄 &nbsp; scale → 🔎 &nbsp; mirror → ↔️</p>
-          </article>
-          <article class="principle-card">
-            <p class="small-label">Feedback</p>
-            <h3>Each decision produces an immediate response.</h3>
-            <p>Feedback is also immediate. The current preview updates before the emoji is placed, and the grid responds directly after the user clicks. This helps users understand the system through experimentation.</p>
-            <p class="mini-flow">choose → preview → place → revise</p>
-          </article>
-        </div>
-      </section>
+    <p>
+      The final design still follows this original purpose. The tool is simple enough for a user to understand quickly, but it does not only produce one type of image. Users can generate a random emoji or type their own symbol. They can change its scale, rotation and direction before placing it. They can also revise individual cells and download their final composition. These functions allow users to make personal choices without making the interface too complicated.
+    </p>
+  </section>
 
-      <section class="reflection-section" id="exploration">
-        <p class="section-number">04</p>
-        <h2>Design Judgements Through Exploration</h2>
-        <article class="judgement-card">
-          <h3>▦ Keeping the 9×9 Grid</h3>
-          <p>One important design judgement was whether I should keep the grid or change the tool into a fully free canvas. A free canvas would give users more spatial freedom. They could place symbols anywhere and make more detailed compositions.</p>
-          <p>After considering the purpose of the project, I decided to keep the 9×9 grid. The limitation is not only a technical shortcut. It is part of the creative method. The grid reduces hesitation because users do not need to think about exact coordinates or small movements.</p>
-          <p>I think this limitation is appropriate for a small creative tool. It gives the project a clearer identity and prevents it from becoming a simplified version of a conventional drawing application.</p>
-          <div class="comparison-row">
-            <div><strong>Free canvas</strong><span>more spatial freedom</span><span>more hesitation</span></div>
-            <b>≠</b>
-            <div><strong>9×9 grid</strong><span>clear choices</span><span>quick composition</span></div>
-          </div>
-        </article>
-        <article class="judgement-card">
-          <h3>🧽 Adding Local Editing</h3>
-          <p>Peer feedback showed that users wanted an easier way to correct small mistakes. In the earlier version, clearing the entire grid was too extreme when the user only wanted to remove one emoji. For this reason, I added a single-cell erase mode.</p>
-          <p>This is a small function, but it changes the experience of using the tool. Users can revise their image gradually instead of starting again.</p>
-        </article>
-      </section>
+  <section class="card reflection-section">
+    <h2>2. Judgement of Worth</h2>
 
-      <section class="reflection-section" id="timeline">
-        <p class="section-number">05</p>
-        <h2>Finalised Production Timeline</h2>
-        <p>My project developed through several stages:</p>
-        <div class="timeline">
-          <article><b>01</b><div><h3>Early studio experiments</h3><p><strong>Main activity:</strong> I explored information design, feedback design and mapping through smaller browser-based tasks.</p><p><strong>Reflection:</strong> These experiments helped me understand that a simple interaction can still create an expressive result.</p></div></article>
-          <article><b>02</b><div><h3>Concept development</h3><p><strong>Main activity:</strong> I decided to use emoji as image-making materials.</p><p><strong>Reflection:</strong> This gave the project a clear visual identity and connected it with everyday digital culture.</p></div></article>
-          <article><b>03</b><div><h3>Prototype development</h3><p><strong>Main activity:</strong> I created the first grid-based version with generated emoji, transformation controls and placement functions.</p><p><strong>Reflection:</strong> The prototype validated the concept, but its functionality was too simple to showcase the user's creativity.</p></div></article>
-          <article><b>04</b><div><h3>Expanded prototype iteration</h3><p><strong>Main activity:</strong> I developed a more complex version of the prototype. I added different emoji categories, a larger emoji selection system, mirror mode and canvas themes.</p><p><strong>Reflection:</strong> This stage was useful because it helped me explore how far the tool could be expanded. However, it also made the interface more crowded.</p></div></article>
-          <article><b>05</b><div><h3>Peer user testing</h3><p><strong>Main activity:</strong> Users tested the tool and suggested manual emoji input, easier deletion and image download.</p><p><strong>Reflection:</strong> The feedback helped me see that users wanted more choices, but they also wanted the interface to remain easy to understand.</p></div></article>
-          <article><b>06</b><div><h3>Final refinement</h3><p><strong>Main activity:</strong> I simplified emoji selection, added manual input, single-cell erase mode and download functionality, and kept the 9×9 grid.</p><p><strong>Reflection:</strong> The final version is more focused and more usable.</p></div></article>
-        </div>
-        <div class="reflection-note"><strong>Reflection</strong><p>The production process was not completely linear. Some ideas that seemed useful at first were removed later. For example, the emoji palette appeared to offer more choice, but it also created more visual clutter. I learned that removing features can be as important as adding them.</p></div>
-      </section>
+    <p>
+      At the beginning of the project, I identified several values that I wanted the tool to communicate: accessibility, playfulness, learnability and open-endedness. These values guided my design decisions throughout the process.
+    </p>
 
-      <section class="reflection-section" id="proud">
-        <p class="section-number">06</p>
-        <h2>What I Am Most Proud Of</h2>
-        <p>The aspect I am most proud of is the balance between limitation and user agency. The tool is deliberately small in scope, but users still have different ways to make the composition their own. They can choose between random and manual input, adjust the appearance of symbols, revise individual cells and export the image.</p>
-        <p>I also think the project communicates its character clearly. It is not trying to become professional illustration software. It is a playful symbolic stage.</p>
-      </section>
+    <p>
+      Accessibility is important. The grid provides a clear starting point. Emoji are also familiar symbols, so users do not need to learn a new visual language before they begin.
+    </p>
 
-      <section class="reflection-section" id="challenge">
-        <p class="section-number">07</p>
-        <h2>The Most Challenging Aspect</h2>
-        <p>The most challenging aspect was deciding how many functions the tool should include. During the process, it was tempting to add more features, such as more emoji categories, drag-and-drop placement or a completely free canvas. These ideas might create more possibilities, but they could also make the tool harder to learn.</p>
-        <p>I needed to think carefully about the purpose of each function. I tried to ask whether a new feature supported the main experience or only made the tool look more complex. This process taught me that interaction design is not only about solving technical problems. It is also about making clear decisions and accepting that some limitations are useful.</p>
-      </section>
+    <p>
+      Playfulness is embodied through the random emoji function. Users may receive a symbol that they did not expect, and this can influence the direction of the composition. For example, a user may start with a simple landscape but then receive a car, a building or an animal.
+    </p>
 
-      <section class="reflection-section" id="peer-contrast">
-        <p class="section-number">08</p>
-        <h2>Learning from a Peer Creative Tool</h2>
-        <article class="peer-feature">
-          <div>
-            <p class="small-label">Insightful contrast</p>
-            <h3>Klotz Beats</h3>
-            <p>One peer creative tool that provided an insightful contrast to my own design judgement was <strong>Klotz Beats</strong>. In this project, users place blocks inside a grid to build a short musical composition. The interaction feels similar to using a simple beat pad or sequencer. It is easy to understand because users can quickly see how different blocks are arranged, make small adjustments and listen to the result.</p>
-            <p>This project gave me a useful point of comparison because both Klotz Beats and Emoji Landscape use a grid as the main structure. Testing this tool helped me reflect on my decision to keep a fixed grid rather than move towards a fully free canvas. A grid can sometimes appear restrictive, but Klotz Beats shows that limitation can also make creative interaction more immediate. Users do not need professional music-making experience before they begin. They can learn through placing blocks, listening and adjusting the pattern.</p>
-            <a class="text-link" href="https://klotzbeats.netlify.app/" target="_blank" rel="noopener noreferrer">Visit Klotz Beats ↗</a>
-          </div>
-          <div class="block-grid" aria-hidden="true">
-            <span>🟦</span><span>🟨</span><span></span><span>🟪</span>
-            <span></span><span>🟩</span><span>🟥</span><span></span>
-            <span>🟪</span><span></span><span>🟨</span><span>🟦</span>
-            <span></span><span>🟥</span><span></span><span>🟩</span>
-          </div>
-        </article>
-      </section>
+    <p>
+      Learnability is supported by the limited number of controls. Users can see what happens when they change the scale, rotate an emoji or switch on mirror mode.
+    </p>
 
-      <section class="reflection-section" id="peer-feedback">
-        <p class="section-number">09</p>
-        <h2>General Feedback on Peer Creative Tools</h2>
-        <div class="peer-grid">
-          <article class="peer-card">
-            <p class="small-label">Peer Project 01</p>
-            <h3>Breath Visualization</h3>
-            <a class="text-link" href="https://breathtrack1.netlify.app/" target="_blank" rel="noopener noreferrer">Open project ↗</a>
-            <p>Breath Visualization creates a calm and immersive interaction experience through a very minimal visual system. When I tested the tool, I was especially interested in how the expanding circles respond to the breathing process. Together with the background music, the movement feels slow and relaxing. The interaction is simple, but it creates a clear atmosphere.</p>
-            <p>One strength of this project is that the visual design and the purpose of the tool are closely connected. The interface does not include too many distracting elements. This makes sense because the user is encouraged to slow down and focus on a repeated action. The expanding rings are also an effective form of visual feedback. They make an invisible action, breathing, feel more visible and tangible.</p>
-          </article>
-          <article class="peer-card">
-            <p class="small-label">Peer Project 02</p>
-            <h3>Ripple</h3>
-            <a class="text-link" href="https://ripple-studioproject.netlify.app/" target="_blank" rel="noopener noreferrer">Open project ↗</a>
-            <p>Ripple was one of the most playful projects that I tested. Users can place different sea creatures into different pitch areas and listen to the sounds created by their movement and collisions. I found the experience interesting because the user can influence the system, but cannot completely control the final result. The creatures move in their own ways, so the composition continues to change after they are placed.</p>
-            <p>The visual style is also very suitable for the interaction. The sea creatures, water ripples and soft colour palette create a light and friendly atmosphere. This makes the tool feel approachable, even though the sound system behind it is more complex. I particularly liked the way the project uses different creatures as more than decorative images. Each creature has a different movement behaviour, while stones can redirect the collision paths. This gives users reasons to experiment with different combinations.</p>
-            <p class="suggestion"><strong>Possible improvement:</strong> The musical differences between the creatures could be more visible before users place them into the pool. A small visual cue or short preview sound could make the available choices easier to understand.</p>
-          </article>
-          <article class="peer-card">
-            <p class="small-label">Peer Project 03</p>
-            <h3>Distortion Playground</h3>
-            <a class="text-link" href="https://s4158360distortionplaygroundfinal.netlify.app/" target="_blank" rel="noopener noreferrer">Open project ↗</a>
-            <p>Distortion Playground uses a simple dot grid to create a surprisingly dynamic interaction experience. Users click and drag across the canvas to distort the dots, and the movement changes depending on the selected mode. I enjoyed testing the difference between Liquid, Elastic and Heat because each mode gives the same basic input a different physical feeling.</p>
-            <p>The strongest part of the project is its immediate feedback. The interface is visually minimal, but the response feels lively and complex. A small dragging gesture can create a much larger movement across the canvas. This makes the tool easy to start using, while still allowing users to spend time experimenting with different effects.</p>
-            <p>I also think the project uses visual simplicity effectively. The basic dot element does not distract from the interaction itself. Instead, it allows the user to pay attention to movement, density, attraction and distortion. The additional controls give users more ways to shape the result, but the main interaction remains clear.</p>
-          </article>
-        </div>
-      </section>
+    <p>
+      Finally, the tool is open-ended. A composition can be a recognisable landscape, but it can also be a pattern, a symbolic scene or a collection of unrelated objects.
+    </p>
+  </section>
 
-      <section class="closing-card">
-        <div>
-          <p class="eyebrow">Final reflection</p>
-          <h2>A small tool shaped by clear decisions.</h2>
-          <p>Emoji Landscape developed through testing, expansion and removal. The final version keeps a limited structure, but gives users enough agency to create personal and unexpected scenes.</p>
-        </div>
-        <a class="button button--primary" href="final.html">Try Emoji Landscape</a>
-      </section>
-    </article>
-  </div>
+  <section class="card reflection-section">
+    <h2>3. Interaction Principles: Mapping and Feedback</h2>
+
+    <p>
+      The two main interaction design principles in my project are mapping and feedback.
+    </p>
+
+    <p>
+      Mapping refers to the relationship between a user action and the result that appears on screen. In Emoji Landscape, each control has a visible and predictable effect.
+    </p>
+
+    <p>
+      Feedback is also immediate. The current preview updates before the emoji is placed, and the grid responds directly after the user clicks. This helps users understand the system through experimentation.
+    </p>
+  </section>
+
+  <section class="card reflection-section">
+    <h2>4. Design Judgements Through Exploration</h2>
+
+    <h3>• Keeping the 9×9 Grid</h3>
+
+    <p>
+      One important design judgement was whether I should keep the grid or change the tool into a fully free canvas. A free canvas would give users more spatial freedom. They could place symbols anywhere and make more detailed compositions.
+    </p>
+
+    <p>
+      After considering the purpose of the project, I decided to keep the 9×9 grid. The limitation is not only a technical shortcut. It is part of the creative method. The grid reduces hesitation because users do not need to think about exact coordinates or small movements.
+    </p>
+
+    <p>
+      I think this limitation is appropriate for a small creative tool. It gives the project a clearer identity and prevents it from becoming a simplified version of a conventional drawing application.
+    </p>
+
+    <h3>• Adding Local Editing</h3>
+
+    <p>
+      Peer feedback showed that users wanted an easier way to correct small mistakes. In the earlier version, clearing the entire grid was too extreme when the user only wanted to remove one emoji. For this reason, I added a single-cell erase mode.
+    </p>
+
+    <p>
+      This is a small function, but it changes the experience of using the tool. Users can revise their image gradually instead of starting again.
+    </p>
+  </section>
+
+  <section class="card reflection-section">
+    <h2>5. Finalised Production Timeline</h2>
+
+    <p>
+      My project developed through several stages:
+    </p>
+
+    <div class="timeline-wrapper">
+      <table class="timeline-table">
+        <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Main Activity</th>
+          <th>Reflection</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>Early studio experiments</td>
+          <td>
+            I explored information design, feedback design and mapping through smaller browser-based tasks.
+          </td>
+          <td>
+            These experiments helped me understand that a simple interaction can still create an expressive result.
+          </td>
+        </tr>
+
+        <tr>
+          <td>Concept development</td>
+          <td>
+            I decided to use emoji as image-making materials.
+          </td>
+          <td>
+            This gave the project a clear visual identity and connected it with everyday digital culture.
+          </td>
+        </tr>
+
+        <tr>
+          <td>Prototype development</td>
+          <td>
+            I created the first grid-based version with generate emoji, transformation controls and placement functions.
+          </td>
+          <td>
+            The prototype validated the concept, but its functionality was too simple to showcase the user's creativity.
+          </td>
+        </tr>
+
+        <tr>
+          <td>Expanded prototype iteration</td>
+          <td>
+            I developed a more complex version of the prototype. I added different emoji categories, a larger emoji selection system, mirror mode and canvas themes.
+          </td>
+          <td>
+            This stage was useful because it helped me explore how far the tool could be expanded. However, it also made the interface more crowded.
+          </td>
+        </tr>
+
+        <tr>
+          <td>Peer user testing</td>
+          <td>
+            Users tested the tool and suggested manual emoji input, easier deletion and image download.
+          </td>
+          <td>
+            The feedback helped me see that users wanted more choices, but they also wanted the interface to remain easy to understand.
+          </td>
+        </tr>
+
+        <tr>
+          <td>Final refinement</td>
+          <td>
+            I simplified emoji selection, added manual input, single-cell erase mode and download functionality, and kept the 9×9 grid.
+          </td>
+          <td>
+            The final version is more focused and more usable.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      The production process was not completely linear. Some ideas that seemed useful at first were removed later. For example, the emoji palette appeared to offer more choice, but it also created more visual clutter. I learned that removing features can be as important as adding them.
+    </p>
+  </section>
+
+  <section class="card reflection-section">
+    <h2>6. What I Am Most Proud Of</h2>
+
+    <p>
+      The aspect I am most proud of is the balance between limitation and user agency. The tool is deliberately small in scope, but users still have different ways to make the composition their own. They can choose between random and manual input, adjust the appearance of symbols, revise individual cells and export the image.
+    </p>
+
+    <p>
+      I also think the project communicates its character clearly. It is not trying to become professional illustration software. It is a playful symbolic stage.
+    </p>
+  </section>
+
+  <section class="card reflection-section">
+    <h2>7. The Most Challenging Aspect</h2>
+
+    <p>
+      The most challenging aspect was deciding how many functions the tool should include. During the process, it was tempting to add more features, such as more emoji categories, drag-and-drop placement or a completely free canvas. These ideas might create more possibilities, but they could also make the tool harder to learn.
+    </p>
+
+    <p>
+      I needed to think carefully about the purpose of each function. I tried to ask whether a new feature supported the main experience or only made the tool look more complex. This process taught me that interaction design is not only about solving technical problems. It is also about making clear decisions and accepting that some limitations are useful.
+    </p>
+  </section>
+
+  <section class="card reflection-section">
+    <h2>8. Learning from a Peer Creative Tool</h2>
+
+    <div class="peer-project">
+      <h3>• Klotz Beats</h3>
+
+      <a class="project-link" href="https://klotzbeats.netlify.app/" target="_blank" rel="noopener noreferrer">
+        https://klotzbeats.netlify.app/
+      </a>
+
+      <p>
+        One peer creative tool that provided an insightful contrast to my own design judgement was Klotz Beats. In this project, users place blocks inside a grid to build a short musical composition. The interaction feels similar to using a simple beat pad or sequencer. It is easy to understand because users can quickly see how different blocks are arranged, make small adjustments and listen to the result.
+      </p>
+
+      <p>
+        This project gave me a useful point of comparison because both Klotz Beats and Emoji Landscape use a grid as the main structure. Testing this tool helped me reflect on my decision to keep a fixed grid rather than move towards a fully free canvas. A grid can sometimes appear restrictive, but Klotz Beats shows that limitation can also make creative interaction more immediate. Users do not need professional music-making experience before they begin. They can learn through placing blocks, listening and adjusting the pattern.
+      </p>
+    </div>
+  </section>
+
+  <section class="card reflection-section">
+    <h2>9. General Feedback on Peer Creative Tools</h2>
+
+    <div class="peer-project">
+      <h3>• Peer Project Feedback 1: Breath Visualization</h3>
+
+      <a class="project-link" href="https://breathtrack1.netlify.app/" target="_blank" rel="noopener noreferrer">
+        https://breathtrack1.netlify.app/
+      </a>
+
+      <p>
+        Breath Visualization creates a calm and immersive interaction experience through a very minimal visual system. When I tested the tool, I was especially interested in how the expanding circles respond to the breathing process. Together with the background music, the movement feels slow and relaxing. The interaction is simple, but it creates a clear atmosphere.
+      </p>
+
+      <p>
+        One strength of this project is that the visual design and the purpose of the tool are closely connected. The interface does not include too many distracting elements. This makes sense because the user is encouraged to slow down and focus on a repeated action. The expanding rings are also an effective form of visual feedback. They make an invisible action, breathing, feel more visible and tangible.
+      </p>
+    </div>
+
+    <div class="peer-project">
+      <h3>• Peer Project Feedback 2: Ripple</h3>
+
+      <a class="project-link" href="https://ripple-studioproject.netlify.app/" target="_blank" rel="noopener noreferrer">
+        https://ripple-studioproject.netlify.app/
+      </a>
+
+      <p>
+        Ripple was one of the most playful projects that I tested. Users can place different sea creatures into different pitch areas and listen to the sounds created by their movement and collisions. I found the experience interesting because the user can influence the system, but cannot completely control the final result. The creatures move in their own ways, so the composition continues to change after they are placed.
+      </p>
+
+      <p>
+        The visual style is also very suitable for the interaction. The sea creatures, water ripples and soft colour palette create a light and friendly atmosphere. This makes the tool feel approachable, even though the sound system behind it is more complex. I particularly liked the way the project uses different creatures as more than decorative images. Each creature has a different movement behaviour, while stones can redirect the collision paths. This gives users reasons to experiment with different combinations.
+      </p>
+
+      <p>
+        One possible improvement would be to make the musical differences between the creatures more visible before users place them into the pool. The hover descriptions are useful, but a small visual cue or short preview sound could help users understand the available choices more quickly.
+      </p>
+    </div>
+
+    <div class="peer-project">
+      <h3>• Peer Project Feedback 3: Distortion Playground</h3>
+
+      <a class="project-link" href="https://s4158360distortionplaygroundfinal.netlify.app/" target="_blank" rel="noopener noreferrer">
+        https://s4158360distortionplaygroundfinal.netlify.app/
+      </a>
+
+      <p>
+        Distortion Playground uses a simple dot grid to create a surprisingly dynamic interaction experience. Users click and drag across the canvas to distort the dots, and the movement changes depending on the selected mode. I enjoyed testing the difference between Liquid, Elastic and Heat because each mode gives the same basic input a different physical feeling.
+      </p>
+
+      <p>
+        The strongest part of the project is its immediate feedback. The interface is visually minimal, but the response feels lively and complex. A small dragging gesture can create a much larger movement across the canvas. This makes the tool easy to start using, while still allowing users to spend time experimenting with different effects.
+      </p>
+
+      <p>
+        I also think the project uses visual simplicity effectively. The basic dot element does not distract from the interaction itself. Instead, it allows the user to pay attention to movement, density, attraction and distortion. The additional controls give users more ways to shape the result, but the main interaction remains clear.
+      </p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="page-actions">
+      <a class="primary-button" href="final.html">Open Final Studio Project</a>
+      <a class="secondary-button" href="index.html">Return to Studio Work Index</a>
+    </div>
+  </section>
 </main>
 
-<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
-<footer><p>Jinge Su · Digital Media Studio · 2026</p><a href="index.html">Return to Studio Work Index</a></footer>
+<footer class="site-footer">
+  <p>Digital Media Studio · 2026</p>
+</footer>
 </body>
 </html>
+```
